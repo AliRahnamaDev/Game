@@ -135,9 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb8720e962f8d942b182651c6d39c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationRight: 0
-  rotationSpeed: 150
-  ypushForce: 25
-  xpushForce: 40
-  time: 0.7
-  cooldown: 3
+  rotationspeed: 100
+  launchForce: 30
+  PlayercantControlltime: 0.5
+  ArrowDisabletime: 1
+  reactivationCheckRadius: 0.5
