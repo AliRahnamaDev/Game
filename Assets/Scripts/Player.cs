@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
      public Rigidbody2D _rb;
      private Animator _anim;
      private BoxCollider2D _bc;
+    
     #endregion
     
     void Start()
