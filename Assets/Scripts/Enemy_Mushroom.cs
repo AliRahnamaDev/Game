@@ -9,6 +9,7 @@ public class Enemy_Mushroom : Enemy
 
     protected override void Update()
     {
+        AnimateMovement();
         base.Update() ;
         HandleMovement() ;
         HandleCollisions() ;
@@ -26,6 +27,18 @@ public class Enemy_Mushroom : Enemy
         if(idleTimer > 0)
             return;
         rb.velocity = new Vector2(speed*facingDirection, rb.velocity.y);
+    }
+
+    private void AnimateMovement()
+    {
+        if (rb.velocity.x != 0)
+        {
+            animator.SetBool("isRunning",true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
     }
     
 }
