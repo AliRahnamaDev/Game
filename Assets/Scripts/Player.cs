@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     [Header("          *********Others*********")]
      public float slidingSpeed = 2f;
      public LayerMask whatIsground;
+     public LayerMask whatIstrap;
      public float wallCheckDistance = 0.1f;
      public float groundCheckDistace = 0.1f;
      public GameObject DeadVfx;
@@ -106,11 +107,16 @@ public class Player : MonoBehaviour
 
     private void GroundDetect()
     {
-        isGrounded = Physics2D.Raycast(new Vector2(transform.position.x - (float)0.55 * faceDirection, transform.position.y), Vector2.down, groundCheckDistace, whatIsground);
+        bool groundedOnTrap = Physics2D.Raycast(new Vector2(transform.position.x - 0.55f * faceDirection, transform.position.y), Vector2.down, groundCheckDistace, whatIstrap);
+        bool groundedOnGround = Physics2D.Raycast(new Vector2(transform.position.x - 0.55f * faceDirection, transform.position.y), Vector2.down, groundCheckDistace, whatIsground);
+    
+        isGrounded = groundedOnTrap || groundedOnGround;
     }
+
     private void WallDetected()
     {
         isWallDitected = Physics2D.Raycast(transform.position, new Vector2(1, 0) * faceDirection, wallCheckDistance, whatIsground);
+ 
     }
 
     private void OnDrawGizmos()
@@ -287,7 +293,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Flip()
+    public void Flip()
     {
         transform.Rotate(0, 180, 0);
         isFacingRight = !isFacingRight;
