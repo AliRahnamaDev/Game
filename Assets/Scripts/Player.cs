@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _rb=GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _bc = GetComponent<BoxCollider2D>();
         defaultGravityScale = 4.5f;

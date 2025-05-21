@@ -1,0 +1,744 @@
+fileFormatVersion: 2
+guid: d99a581fbc2357b4ea0285e77f9de06a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 272
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f681ce9c1628aa4aa43bf34cbf2a6e7
+      internalID: 389558188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 274
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e4f1b9af61db1e45aa4b22747d45db0
+      internalID: -783707961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 274
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48789b626a349cf46a728e4d89d95429
+      internalID: 958677060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 275
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39b66696fde90f342bba4cf2a7fb4f07
+      internalID: 1220354568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 272
+        width: 22
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd1221228f820e4d81bc254740236ed
+      internalID: -542466143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 302
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 296f9a13fea947744be4c198402ab168
+      internalID: 521950197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 302
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e53cc98f05ad5749a9e94186ecb1269
+      internalID: -1345111342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 302
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9776b2d769c6094ba1eb484fb9112e7
+      internalID: -1589832341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 209
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e6448d3315fdd4793a759d2881f2c0
+      internalID: -96996883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 212
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6ee4d2593705f4f95a476c7769c4f6
+      internalID: 1629265194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 210
+        width: 40
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ba10916ad9c0e43a006baceecd1387
+      internalID: -914236486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 210
+        width: 33
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6877e7f63090be46bb5e6a0b733fc2d
+      internalID: -1517240603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 210
+        width: 34
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eda153e7df451f429ff3e6266ecb893
+      internalID: 360859270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 212
+        width: 39
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab179ae3e1ed94041bd674d671566eab
+      internalID: 1811440126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_27
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 210
+        width: 39
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946260911cb12ad4697e26ff3ac90785
+      internalID: -1749094167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_28
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 209
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b47316271aa481e4b948de18b76f0004
+      internalID: -513835310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_32
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 136
+        width: 40
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0111252816a9a954ea78d9d96b91b727
+      internalID: -2108045183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_33
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 134
+        width: 35
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e359ff683c2a94a8e11a89ea59d246
+      internalID: 160867066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_39
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 136
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6049c8c083d98554fa823f17ca35b197
+      internalID: 2039218225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_45
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 71
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d77be1eb57a318438b2d4ccb1546e56
+      internalID: -837164494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_46
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 72
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5982dfcd69ab13418bc0cbd2077910f
+      internalID: 666963789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_47
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 73
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a8d4896cb1986544a0207f117798fa6
+      internalID: -1546517676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_48
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 16
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbe6a0cf58cf9243afa2899f82498d5
+      internalID: 1025577402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_49
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 17
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ac6d2ff33a9ab43a53b27cc7a77e9c
+      internalID: 1974710049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_50
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 11
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ced0815b1787442a443a6d98763fea
+      internalID: 1948855577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_51
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 14
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 187b9728e5628a4468a1c07dbdaf576e
+      internalID: 382271526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ben10_by_dragonrod342_davnqv6-removebg-preview_52
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 13
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05efa9ee281852b4bb58cb9629487f5c
+      internalID: 1736066191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ben10_by_dragonrod342_davnqv6-removebg-preview_51: 382271526
+      ben10_by_dragonrod342_davnqv6-removebg-preview_7: 958677060
+      ben10_by_dragonrod342_davnqv6-removebg-preview_0: 1182439086
+      ben10_by_dragonrod342_davnqv6-removebg-preview_12: -1589832341
+      ben10_by_dragonrod342_davnqv6-removebg-preview_34: 494250883
+      ben10_by_dragonrod342_davnqv6-removebg-preview_23: -914236486
+      ben10_by_dragonrod342_davnqv6-removebg-preview_25: 360859270
+      ben10_by_dragonrod342_davnqv6-removebg-preview_16: 1030942683
+      ben10_by_dragonrod342_davnqv6-removebg-preview_50: 1948855577
+      ben10_by_dragonrod342_davnqv6-removebg-preview_2: 1060821418
+      ben10_by_dragonrod342_davnqv6-removebg-preview_11: -1345111342
+      ben10_by_dragonrod342_davnqv6-removebg-preview_27: -1749094167
+      ben10_by_dragonrod342_davnqv6-removebg-preview_38: -683823262
+      ben10_by_dragonrod342_davnqv6-removebg-preview_8: 1220354568
+      ben10_by_dragonrod342_davnqv6-removebg-preview_14: 463407642
+      ben10_by_dragonrod342_davnqv6-removebg-preview_43: -769300217
+      ben10_by_dragonrod342_davnqv6-removebg-preview_15: 1575153711
+      ben10_by_dragonrod342_davnqv6-removebg-preview_5: 389558188
+      ben10_by_dragonrod342_davnqv6-removebg-preview_52: 1736066191
+      ben10_by_dragonrod342_davnqv6-removebg-preview_48: 1025577402
+      ben10_by_dragonrod342_davnqv6-removebg-preview_3: 274876323
+      ben10_by_dragonrod342_davnqv6-removebg-preview_17: 658115032
+      ben10_by_dragonrod342_davnqv6-removebg-preview_32: -2108045183
+      ben10_by_dragonrod342_davnqv6-removebg-preview_47: -1546517676
+      ben10_by_dragonrod342_davnqv6-removebg-preview_35: -1308171610
+      ben10_by_dragonrod342_davnqv6-removebg-preview_42: -582530457
+      ben10_by_dragonrod342_davnqv6-removebg-preview_22: 1629265194
+      ben10_by_dragonrod342_davnqv6-removebg-preview_13: -403715593
+      ben10_by_dragonrod342_davnqv6-removebg-preview_28: -513835310
+      ben10_by_dragonrod342_davnqv6-removebg-preview_9: -542466143
+      ben10_by_dragonrod342_davnqv6-removebg-preview_6: -783707961
+      ben10_by_dragonrod342_davnqv6-removebg-preview_36: -1295080557
+      ben10_by_dragonrod342_davnqv6-removebg-preview_19: 1736377711
+      ben10_by_dragonrod342_davnqv6-removebg-preview_21: -96996883
+      ben10_by_dragonrod342_davnqv6-removebg-preview_37: 102198550
+      ben10_by_dragonrod342_davnqv6-removebg-preview_30: 236374235
+      ben10_by_dragonrod342_davnqv6-removebg-preview_46: 666963789
+      ben10_by_dragonrod342_davnqv6-removebg-preview_10: 521950197
+      ben10_by_dragonrod342_davnqv6-removebg-preview_39: 2039218225
+      ben10_by_dragonrod342_davnqv6-removebg-preview_20: 102627901
+      ben10_by_dragonrod342_davnqv6-removebg-preview_45: -837164494
+      ben10_by_dragonrod342_davnqv6-removebg-preview_40: 213734470
+      ben10_by_dragonrod342_davnqv6-removebg-preview_24: -1517240603
+      ben10_by_dragonrod342_davnqv6-removebg-preview_33: 160867066
+      ben10_by_dragonrod342_davnqv6-removebg-preview_44: 735544180
+      ben10_by_dragonrod342_davnqv6-removebg-preview_29: 2111348190
+      ben10_by_dragonrod342_davnqv6-removebg-preview_4: -1481665807
+      ben10_by_dragonrod342_davnqv6-removebg-preview_41: 1338343231
+      ben10_by_dragonrod342_davnqv6-removebg-preview_18: -73591478
+      ben10_by_dragonrod342_davnqv6-removebg-preview_31: -1656332477
+      ben10_by_dragonrod342_davnqv6-removebg-preview_1: 1473646291
+      ben10_by_dragonrod342_davnqv6-removebg-preview_49: 1974710049
+      ben10_by_dragonrod342_davnqv6-removebg-preview_26: 1811440126
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
