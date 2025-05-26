@@ -11,7 +11,6 @@ public class FinishPoint : MonoBehaviour
         if (player != null)
         {
             animator.SetTrigger("isActivated");
-            Debug.Log("LevalFinished");
         }
     }
 }

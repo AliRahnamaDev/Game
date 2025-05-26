@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b57d5e7a16abfde428179e176db46049
+guid: 74af318ae57d14c4ab7f94afdff1e620
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -105,112 +105,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Wall Jump (32x32)_0
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 2
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d363fe93f1280aa42ac54c09beac72df
-      internalID: 1972295319
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall Jump (32x32)_1
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 2
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62f0ea0d64f7bf44182dfda9f637858a
-      internalID: -1966269798
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall Jump (32x32)_2
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 2
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68b335ff3c001f144b27279afd3344dc
-      internalID: -74696538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall Jump (32x32)_3
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 2
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 522b387d249d221499c2e70a28c5ff38
-      internalID: -108760892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall Jump (32x32)_4
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 2
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b961ab1a330aeea498b6c03a69ab3218
-      internalID: -1856822425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -221,12 +116,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Wall Jump (32x32)_0: 1972295319
-      Wall Jump (32x32)_1: -1966269798
-      Wall Jump (32x32)_3: -108760892
-      Wall Jump (32x32)_2: -74696538
-      Wall Jump (32x32)_4: -1856822425
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

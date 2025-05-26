@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Hit
+  m_Name: Ben10_Fighting
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -20,20 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -497276103, guid: c6bb4214e87430948af09651d8abc9ae, type: 3}
-    - time: 0.06666667
-      value: {fileID: 1736076994, guid: c6bb4214e87430948af09651d8abc9ae, type: 3}
-    - time: 0.13333334
-      value: {fileID: 926143086, guid: c6bb4214e87430948af09651d8abc9ae, type: 3}
-    - time: 0.2
-      value: {fileID: 141582529, guid: c6bb4214e87430948af09651d8abc9ae, type: 3}
-    - time: 0.26666668
-      value: {fileID: 976182687, guid: c6bb4214e87430948af09651d8abc9ae, type: 3}
+      value: {fileID: -837164494, guid: d99a581fbc2357b4ea0285e77f9de06a, type: 3}
+    - time: 1
+      value: {fileID: 666963789, guid: d99a581fbc2357b4ea0285e77f9de06a, type: 3}
+    - time: 2
+      value: {fileID: -1546517676, guid: d99a581fbc2357b4ea0285e77f9de06a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 15
+  m_SampleRate: 1
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -49,17 +45,15 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
     pptrCurveMapping:
-    - {fileID: -497276103, guid: c6bb4214e87430948af09651d8abc9ae, type: 3}
-    - {fileID: 1736076994, guid: c6bb4214e87430948af09651d8abc9ae, type: 3}
-    - {fileID: 926143086, guid: c6bb4214e87430948af09651d8abc9ae, type: 3}
-    - {fileID: 141582529, guid: c6bb4214e87430948af09651d8abc9ae, type: 3}
-    - {fileID: 976182687, guid: c6bb4214e87430948af09651d8abc9ae, type: 3}
+    - {fileID: -837164494, guid: d99a581fbc2357b4ea0285e77f9de06a, type: 3}
+    - {fileID: 666963789, guid: d99a581fbc2357b4ea0285e77f9de06a, type: 3}
+    - {fileID: -1546517676, guid: d99a581fbc2357b4ea0285e77f9de06a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 3
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
