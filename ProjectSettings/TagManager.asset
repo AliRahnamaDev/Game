@@ -18,7 +18,7 @@ TagManager:
   - 'IgnoreCollisionLayer '
   - Enemy
   - Trap
-  - 
+  - PlayerShadow
   - 
   - 
   - 
@@ -43,11 +43,11 @@ TagManager:
   - name: BackGround
     uniqueID: 3058419725
     locked: 0
+  - name: EnemyPlant
+    uniqueID: 3194745555
+    locked: 0
   - name: Traps
     uniqueID: 1719382623
-    locked: 0
-  - name: Enemy
-    uniqueID: 2115058305
     locked: 0
   - name: Ground
     uniqueID: 2914069467
@@ -60,6 +60,9 @@ TagManager:
     locked: 0
   - name: DeadEnemy
     uniqueID: 190209379
+    locked: 0
+  - name: Enemy
+    uniqueID: 2115058305
     locked: 0
   - name: Default
     uniqueID: 0

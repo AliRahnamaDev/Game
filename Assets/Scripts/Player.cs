@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private LayerMask whatIsEnemy;
+    [SerializeField] private float EnemyCheckRadius;
+    [SerializeField] private Transform enemyCheck;
     #region Def
 
     [Header("          *********Abilities*********")]
@@ -86,6 +89,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        HandleEnemyCollison();
         GroundDetect();
         CanDoubleJump();
         
@@ -134,6 +138,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void HandleEnemyCollison()
+    {
+        if(_rb.velocity.y >= 0)
+            return;
+        Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(enemyCheck.position, EnemyCheckRadius, whatIsEnemy);
+        foreach (var enemy in collider2Ds)
+        {
+            Enemy newenemy = enemy.GetComponent<Enemy>();
+            if (newenemy != null)
+            {
+                newenemy.Die();
+            }
+            
+        }
+    }
+    
     private IEnumerator Dash()
     {
         canDash = false;
@@ -281,6 +301,7 @@ public class Player : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.DrawWireSphere(enemyCheck.position,EnemyCheckRadius);
         Gizmos.DrawLine(transform.position, new Vector2(transform.position.x + wallCheckDistance * faceDirection, transform.position.y));
 
         Vector2 groundRayDirection = isGravityInverted ? Vector2.up : Vector2.down;

@@ -1,8 +1,18 @@
 using UnityEngine;
 public class Enemy : MonoBehaviour
 {
+    [Header("Death details")] [SerializeField]
+    private float deathImpact;
+    [SerializeField] private float deathRoatationSpeed;
+    public bool isDead;
+    private int deathDirection = 1;
+    [Space]
+    [Header("          ***********************")]
+    [Space]
+    [SerializeField] protected GameObject damageTrigger;
     protected Rigidbody2D rb;
     protected Animator animator;
+    protected Collider2D collider;
     
     protected int facingDirection = -1;
     [SerializeField] protected float speed;
@@ -21,14 +31,36 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        collider = GetComponent<Collider2D>();
     }
 
     protected virtual void Update()
     {
         idleTimer -= Time.deltaTime;
-        
+        if (isDead)
+        {
+            HandleDeath();
+        }
     }
 
+    public virtual void Die()
+    {
+        collider.enabled = false;
+        damageTrigger.SetActive(false);
+        isDead = true;
+        rb.velocity = new Vector2(rb.velocity.x, deathImpact);
+        if (Random.Range(0f, 100f) < 50)
+        {
+            deathDirection *= -1;
+        }
+    }
+
+    private void HandleDeath()
+    {
+        Debug.Log("alu");
+        transform.Rotate(0,0,(deathRoatationSpeed * (deathDirection)*Time.deltaTime));
+    }
+    
     private void HandleFlip(float xValue)
     {
         if(xValue > 0  && !facingRight || xValue < 0  && facingRight)

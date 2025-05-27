@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2963639445422077087
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2963639445422077086}
-  m_Layer: 9
-  m_Name: groundCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2963639445422077086
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2963639445422077087}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1, y: -0, z: 0.25860155}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2963639446130271186}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2963639446130271190
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +13,7 @@ GameObject:
   - component: {fileID: 2963639446130271184}
   - component: {fileID: 2963639446130271196}
   - component: {fileID: 2963639446130271199}
-  - component: {fileID: 2963639446130271198}
+  - component: {fileID: -853403031779539132}
   m_Layer: 9
   m_Name: Enemy_Mushroom
   m_TagString: Untagged
@@ -63,10 +32,9 @@ Transform:
   m_LocalPosition: {x: -7.25, y: -9.92, z: -0.33636612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2963639445422077086}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2963639446130271187
 SpriteRenderer:
@@ -107,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2115058305
-  m_SortingLayer: -6
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1620875390, guid: 8e75cd7d692acd0458b01f5004307e2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,7 +155,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6386676, y: 1.13622}
   m_EdgeRadius: 0
---- !u!114 &2963639446130271198
+--- !u!114 &-853403031779539132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,19 +164,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2963639446130271190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0810058c2fd84e2489a858c34f39686f, type: 3}
+  m_Script: {fileID: 11500000, guid: ea582e333f996a64aa0910419592ad72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  groundCheckDistance: 0.6
+  speed: 5
+  groundCheckDistance: 1
   wallCheckDistance: 1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  groundCheck: {fileID: 2963639445422077086}
+  groundCheck: {fileID: 0}
   facingRight: 0
   isGroundInfrontDetected: 1
   isGrounded: 0
   isWallDetected: 0
   idleTimer: 0
-  idleDuration: 1.5
+  idleDuration: 2
