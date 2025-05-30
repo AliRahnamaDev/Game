@@ -55,9 +55,6 @@ TagManager:
   - name: Item
     uniqueID: 2123917251
     locked: 0
-  - name: Player
-    uniqueID: 3058755119
-    locked: 0
   - name: DeadEnemy
     uniqueID: 190209379
     locked: 0
@@ -66,4 +63,28 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: tree
+    uniqueID: 3857161657
+    locked: 0
+  - name: wall
+    uniqueID: 2502404117
+    locked: 0
+  - name: window
+    uniqueID: 3342647243
+    locked: 0
+  - name: door
+    uniqueID: 3431000277
+    locked: 0
+  - name: roof
+    uniqueID: 2087261291
+    locked: 0
+  - name: wood
+    uniqueID: 131531303
+    locked: 0
+  - name: tazeinat
+    uniqueID: 1842390423
+    locked: 0
+  - name: Player
+    uniqueID: 3058755119
     locked: 0

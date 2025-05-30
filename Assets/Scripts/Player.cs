@@ -21,17 +21,19 @@ public class Player : MonoBehaviour
     public bool canDash = true;
     public bool isDashing = false;
     public int airDashCount = 2; // تغییر از 1 به 2
-    private int currentAirDashes = 0;
+    public int currentAirDashes = 0;
     public bool resetAirDashOnGround = true;
     public Color dashTrailColor = Color.white;
     public bool omnidirectionalDash = true;
     public float dashEndVerticalMultiplier = 0.5f;
+    public bool canAddDash =false;
 
     [Header("          *********Gravity*********")]
     public bool isGravityInverted = false;
     public float invertedGravityScale = -4.5f;
 
     [Header("          *********Movement*********")]
+    public float jumpForceAfterhitEnemy = 12;
     public float speed = 5f;
     public bool isChangeFacingActive = true;
     public bool isFacingRight = true;
@@ -67,6 +69,7 @@ public class Player : MonoBehaviour
     private Animator _anim;
     private BoxCollider2D _bc;
     private TrailRenderer _trail;
+    
 
     #endregion
 
@@ -89,7 +92,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        HandleEnemyCollison();
+        HandleEnemyCollision();
         GroundDetect();
         CanDoubleJump();
         
@@ -115,7 +118,19 @@ public class Player : MonoBehaviour
         {
             ToggleGravity();
         }
-
+        
+        if(!isWallDitected ) canAddDash = true;
+        if (isWallDitected && canAddDash)
+        {
+            if(currentAirDashes>-1)
+            {
+                currentAirDashes--;
+            }
+            canAddDash = false;
+        }
+        
+        
+        
         if (allowDash && Input.GetKeyDown(dashKey))
         {
             TryDash();
@@ -138,21 +153,26 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void HandleEnemyCollison()
+    private void HandleEnemyCollision()
     {
-        if(_rb.velocity.y >= 0)
-            return;
-        Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(enemyCheck.position, EnemyCheckRadius, whatIsEnemy);
-        foreach (var enemy in collider2Ds)
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(enemyCheck.position, EnemyCheckRadius, whatIsEnemy);
+
+        foreach (var enemy in enemies)
         {
-            Enemy newenemy = enemy.GetComponent<Enemy>();
-            if (newenemy != null)
+            Enemy newEnemy = enemy.GetComponent<Enemy>();
+            if (newEnemy != null)
             {
-                newenemy.Die();
+                // فقط اگر پایین‌تر از دشمن باشیم (برای جلوگیری از برخورد از بغل یا بالا)
+                if (_rb.velocity.y < 0 && transform.position.y > newEnemy.transform.position.y + 0.2f)
+                {
+                    _rb.velocity = new Vector2(_rb.velocity.x, 0); // حذف سرعت قبلی به بالا
+                    _rb.AddForce(Vector2.up * jumpForceAfterhitEnemy, ForceMode2D.Impulse);
+                    newEnemy.Die();
+                }
             }
-            
         }
     }
+
     
     private IEnumerator Dash()
     {
@@ -192,7 +212,6 @@ public class Player : MonoBehaviour
         {
             _trail.enabled = true;
         }
-        
         yield return new WaitForSeconds(dashDuration);
         
         _rb.gravityScale = originalGravity;

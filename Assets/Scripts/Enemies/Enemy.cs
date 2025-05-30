@@ -1,10 +1,15 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 public class Enemy : MonoBehaviour
 {
     [Header("Death details")] [SerializeField]
     private float deathImpact;
     [SerializeField] private float deathRoatationSpeed;
     public bool isDead;
+    [SerializeField]protected bool canMove = true;
     private int deathDirection = 1;
     [Space]
     [Header("          ***********************")]
@@ -15,6 +20,7 @@ public class Enemy : MonoBehaviour
     protected Collider2D collider;
     
     protected int facingDirection = -1;
+    [SerializeField] protected LayerMask whatIsPlayer;
     [SerializeField] protected float speed;
     [SerializeField] protected float groundCheckDistance;
     [SerializeField] protected float wallCheckDistance;
@@ -26,13 +32,29 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected bool isWallDetected = false;
     [SerializeField] protected float idleTimer;
     [SerializeField] protected float idleDuration;
+    [SerializeField] protected Transform player;
+    [SerializeField] protected bool CanDead = true;
     
+    private Player playerScript;
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         collider = GetComponent<Collider2D>();
     }
+
+    protected virtual void Start()
+    { 
+        playerScript = player.GetComponent<Player>();
+        InvokeRepeating(nameof(UpdatePlayersRef),0,1);
+    }
+
+    private void UpdatePlayersRef()
+    {
+        if(player == null)
+            player = GameManager.instance.player.transform;
+    }
+    
 
     protected virtual void Update()
     {
@@ -41,10 +63,16 @@ public class Enemy : MonoBehaviour
         {
             HandleDeath();
         }
+        if(playerScript.isKnocked)
+        {
+            StartCoroutine(HandleCanDead());
+        }
     }
 
     public virtual void Die()
     {
+        if(!CanDead)
+            return;
         collider.enabled = false;
         damageTrigger.SetActive(false);
         isDead = true;
@@ -57,13 +85,16 @@ public class Enemy : MonoBehaviour
 
     private void HandleDeath()
     {
-        Debug.Log("alu");
+        if (isDead)
+        {
+            collider.enabled = false;
+        }
         transform.Rotate(0,0,(deathRoatationSpeed * (deathDirection)*Time.deltaTime));
     }
     
-    private void HandleFlip(float xValue)
+    protected virtual void HandleFlip(float xValue)
     {
-        if(xValue > 0  && !facingRight || xValue < 0  && facingRight)
+        if(xValue > transform.position.x  && !facingRight || xValue < transform.position.x  && facingRight)
             Flip();
     }
 
@@ -74,17 +105,24 @@ public class Enemy : MonoBehaviour
         facingRight = !facingRight;
     }
 
-    protected virtual void HandleCollisions()
+    public virtual void HandleCollisions()
     {
         isGrounded=Physics2D.Raycast((transform.position),Vector2.down,groundCheckDistance,whatIsGround);
         isGroundInfrontDetected = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
         isWallDetected = Physics2D.Raycast(transform.position, Vector2.right * facingDirection, wallCheckDistance, whatIsGround);
     }
 
-    private void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position,new  Vector2(transform.position.x,groundCheck.position.y - groundCheckDistance));
         Gizmos.DrawLine(groundCheck.position,new  Vector2(groundCheck.position.x,groundCheck.position.y - groundCheckDistance));
         Gizmos.DrawLine(transform.position,new  Vector2(transform.position.x + (wallCheckDistance * facingDirection),transform.position.y));
+    }
+
+    IEnumerator HandleCanDead()
+    {
+        CanDead = false;
+        yield return new WaitForSeconds(2f);
+        CanDead = true;
     }
 }

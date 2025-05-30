@@ -81,6 +81,4 @@ public class ShadowGhost : MonoBehaviour
     {
         // هیچ کاری نمی‌کنیم
     }
-    
-    
 }
