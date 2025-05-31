@@ -194,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 280861419782004416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.7973876, y: 2.3217332, z: 0.18141893}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6277935287114205114}
@@ -766,7 +766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7815966955399083203}
   - component: {fileID: 1985730687367335594}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cartoon_Medieval_Armory_Level_Set_Building - Roof A 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1509,7 +1509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 988475906396682390}
   - component: {fileID: 8365996846479296146}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cartoon_Medieval_Armory_Level_Set_Building - Roof A 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1761,7 +1761,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3045137236346728914}
   - component: {fileID: 9151237020859398075}
-  m_Layer: 0
+  - component: {fileID: 8303926334098948600}
+  m_Layer: 6
   m_Name: Cartoon_Medieval_Armory_Level_Set_Building - Roof A 02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1835,6 +1836,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &8303926334098948600
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4836781939845116352}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.23763084, y: 0.93072224}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5, y: 2.5}
+    newSize: {x: 5, y: 2.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.802353, y: 0.6385556}
+  m_EdgeRadius: 0
 --- !u!1 &4890274824617953492
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,7 +2124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9207612110016466269}
   - component: {fileID: 8148562636851231510}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cartoon_Medieval_Armory_Level_Set_Building - Roof A 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2349,7 +2376,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1265703184551599061}
   - component: {fileID: 4286314544988528199}
-  m_Layer: 0
+  - component: {fileID: 2859276024382263693}
+  m_Layer: 6
   m_Name: Cartoon_Medieval_Armory_Level_Set_Building - Decor Roof 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2423,6 +2451,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &2859276024382263693
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363352073370106476}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.28232, y: 1.0988629}
+  - {x: 1.2707535, y: 1.1667597}
+  - {x: 1.2499988, y: 0.06463879}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &7387065563021828581
 GameObject:
   m_ObjectHideFlags: 0
@@ -2868,8 +2919,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8247376012585521575}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.707388, y: 2.2717333, z: 0.18141893}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: -8.71, y: 2.37, z: 0.18141893}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6277935287114205114}
@@ -3165,8 +3216,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -863967019
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 495da32e8ce71f34496f9c13747d3bb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3189,7 +3240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2444549522323633407}
   - component: {fileID: 8221041425991468515}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cartoon_Medieval_Armory_Level_Set_Building - Roof A 02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3372,8 +3423,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9067829843027432110}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 3.8526125, y: 5.971733, z: 0.18141893}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 3.4, y: 6.69, z: 0.18141893}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6277935287114205114}

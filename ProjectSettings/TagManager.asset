@@ -19,7 +19,7 @@ TagManager:
   - Enemy
   - Trap
   - PlayerShadow
-  - 
+  - GroundPoshti
   - 
   - 
   - 
@@ -42,6 +42,15 @@ TagManager:
   m_SortingLayers:
   - name: BackGround
     uniqueID: 3058419725
+    locked: 0
+  - name: treePoshti2
+    uniqueID: 3511481441
+    locked: 0
+  - name: treePoshti1
+    uniqueID: 2328174499
+    locked: 0
+  - name: GroundPoshti
+    uniqueID: 1950044019
     locked: 0
   - name: EnemyPlant
     uniqueID: 3194745555

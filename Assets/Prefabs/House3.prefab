@@ -43,7 +43,7 @@ Transform:
   - {fileID: 9007422681760648430}
   - {fileID: 6225162710477547961}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &966267433149974793
 GameObject:
@@ -475,7 +475,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3476011166335761106}
   - component: {fileID: 8064449465817397480}
-  m_Layer: 0
+  - component: {fileID: 6013860540126595647}
+  m_Layer: 6
   m_Name: Cartoon_Medieval_Armory_Level_Set_Building - Canopy 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,6 +550,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &6013860540126595647
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3012424994562585377}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1, y: -0.078125}
+      - {x: 1, y: 0.03125}
+      - {x: 0.78125, y: 0.1875}
+      - {x: -0.015625, y: 0.625}
+      - {x: -0.515625, y: 0.875}
+      - {x: -0.84375, y: 1}
+      - {x: -1, y: 1}
+      - {x: -1, y: -1}
+      - {x: -0.671875, y: -1}
+      - {x: 0.6875, y: -0.234375}
+      - {x: 0.859375, y: -0.234375}
+      - {x: 0.921875, y: -0.171875}
+    - - {x: -0.734375, y: 0.5}
+      - {x: -0.4375, y: 0.34375}
+      - {x: 0.359375, y: -0.03125}
+      - {x: -0.375, y: -0.40625}
+      - {x: -0.703125, y: -0.578125}
+      - {x: -0.75, y: -0.625}
+      - {x: -0.734375, y: -0.625}
+  m_UseDelaunayMesh: 0
 --- !u!1 &3119188025372807616
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6355165179519682971}
   - component: {fileID: 4179073669648921539}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cartoon_Medieval_Armory_Level_Set_Building - Roof B 05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1147,7 +1193,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7265750606242783082}
   - component: {fileID: 728416501809092698}
-  m_Layer: 0
+  - component: {fileID: 2585992270355089525}
+  m_Layer: 6
   m_Name: Cartoon_Medieval_Armory_Level_Set_Building - Roof B 04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1221,3 +1268,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &2585992270355089525
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139622067849034114}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -7.9429493, y: -1.0985085}
+  - {x: -2.7244072, y: 1.2837157}
+  - {x: 2.5729673, y: -1.1234751}
+  - {x: 2.5434618, y: -1.1734071}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
