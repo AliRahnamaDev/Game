@@ -36,7 +36,7 @@ Transform:
   - {fileID: 7939304254361352551}
   - {fileID: 7939304254770063759}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7939304253958219637
 SpriteRenderer:
@@ -109,7 +109,7 @@ MonoBehaviour:
   damageTrigger: {fileID: 7939304254361352549}
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 8192
   speed: 0
   groundCheckDistance: 0
   wallCheckDistance: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   isWallDetected: 0
   idleTimer: 0
   idleDuration: 0
-  player: {fileID: 0}
+  player: {fileID: 7808929744006644912, guid: 54af5c29a24b9a6419212ac9350f6f37, type: 3}
   CanDead: 1
   bulletPrefab: {fileID: 7201859948551352493, guid: 2e0aba6ff4e7ec04d83ec27dbd4a7056, type: 3}
   shootPoint: {fileID: 7939304255108710563}

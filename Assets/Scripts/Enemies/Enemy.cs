@@ -63,10 +63,10 @@ public class Enemy : MonoBehaviour
         {
             HandleDeath();
         }
-        if(playerScript.isKnocked)
-        {
-            StartCoroutine(HandleCanDead());
-        }
+        // if(playerScript.isKnocked)
+        // {
+        //     StartCoroutine(HandleCanDead());
+        // }
     }
 
     public virtual void Die()

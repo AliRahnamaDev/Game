@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8425107507315385945}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8425107507519935089}
   - component: {fileID: 8425107507519935088}
   - component: {fileID: 8425107507519934989}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Player_Archer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ Transform:
   - {fileID: 8425107507315385945}
   - {fileID: 8425107507773981651}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8425107507519934991
 SpriteRenderer:
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8425107507773981651}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
