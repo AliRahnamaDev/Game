@@ -19,7 +19,6 @@ public class Trap_Saw : MonoBehaviour
         animator = GetComponent<Animator>();
         transform.position = waypoint[0].position;
     }
-
     
     void Update()
     {

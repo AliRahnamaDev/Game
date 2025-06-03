@@ -10,7 +10,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - bugged layer
   - Water
   - UI
   - Ground
@@ -20,7 +20,7 @@ TagManager:
   - Trap
   - PlayerShadow
   - GroundPoshti
-  - 
+  - Player
   - 
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
     locked: 0
   - name: GroundPoshti
     uniqueID: 1950044019
+    locked: 0
+  - name: tazinatPoshti
+    uniqueID: 740465119
     locked: 0
   - name: EnemyPlant
     uniqueID: 3194745555
@@ -96,4 +99,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3058755119
+    locked: 0
+  - name: water
+    uniqueID: 2266826235
+    locked: 0
+  - name: New Layer 21
+    uniqueID: 3279984889
     locked: 0

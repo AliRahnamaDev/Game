@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public bool allowWallSlide = true;
     public bool allowGravityInvert = true;
     public bool allowDash = true;
-    [SerializeField] private KeyCode dashKey = KeyCode.RightShift;
+    [SerializeField] private KeyCode dashKey = KeyCode.LeftShift;
 
     [Header("          *********Dash Settings*********")]
     public float dashSpeed = 20f;
