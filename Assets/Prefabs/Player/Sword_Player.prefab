@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2578993073843242273}
   - component: {fileID: 2578993073843242272}
   - component: {fileID: 809263730}
+  - component: {fileID: 1548153362328331780}
   m_Layer: 13
   m_Name: Sword_Player
   m_TagString: Player
@@ -68,7 +69,7 @@ Transform:
   - {fileID: 8427162581780935149}
   - {fileID: 457264946}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2578993073843242274
 SpriteRenderer:
@@ -239,6 +240,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   justTeleported: 0
+--- !u!114 &1548153362328331780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578993073843242303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e581ba573d4348459cf2eb6287b605e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1001 &7122870580610804220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -247,6 +261,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 2578993073843242275}
     m_Modifications:
+    - target: {fileID: 7122870580455565000, guid: a83af237838944e408bbf7986256fad7, type: 3}
+      propertyPath: attacker
+      value: 
+      objectReference: {fileID: 2578993073843242303}
     - target: {fileID: 7122870580455565005, guid: a83af237838944e408bbf7986256fad7, type: 3}
       propertyPath: m_Name
       value: AttackSource

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7939304253958219531}
   - component: {fileID: 7939304253958219639}
   - component: {fileID: 1003232199}
+  - component: {fileID: 1003232205}
   m_Layer: 14
   m_Name: Plant
   m_TagString: Enemy
@@ -37,7 +38,7 @@ Transform:
   - {fileID: 7939304254361352551}
   - {fileID: 7939304254770063759}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7939304253958219637
 SpriteRenderer:
@@ -200,6 +201,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1003232205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939304253958219530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e581ba573d4348459cf2eb6287b605e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &7939304254361352549
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6eb9f1468cfd814c8fbf02d798d56d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageAmount: 3
 --- !u!1 &7939304254770063758
 GameObject:
   m_ObjectHideFlags: 0

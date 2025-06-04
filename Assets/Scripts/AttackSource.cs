@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class AttackSource : MonoBehaviour
 {
+    [Header("Attack Settings")]
     public float damageAmount = 10f;
-    public string sourceTag = "Player"; // اگر از پلیر اومده
+    public string targetTag = "Enemy"; // یا "Player" اگر بخوای یه انمی هم بزنه
+    public GameObject attacker; // معمولاً owner
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Enemy"))
+        if (!other.CompareTag(targetTag))
             return;
 
-        Debug.Log($"Enemy hit by {sourceTag}! Damage: {damageAmount}");
-
         Damageable damageable = other.GetComponent<Damageable>();
-        if (damageable != null)
+        if (damageable != null && other.gameObject != attacker)
         {
-            damageable.TakeDamage(damageAmount);
+            damageable.TakeDamage(damageAmount, attacker);
         }
     }
 }
