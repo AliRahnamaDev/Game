@@ -6,13 +6,21 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask whatIsEnemy;
     [SerializeField] private float EnemyCheckRadius;
     [SerializeField] private Transform enemyCheck;
+    
+    [Header("Control Keys")]
+    public KeyCode moveLeftKey = KeyCode.A;
+    public KeyCode moveRightKey = KeyCode.D;
+    public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode dashKey = KeyCode.LeftShift;
+    public KeyCode gravityInvertKey = KeyCode.M;
+    public KeyCode wallSlideFastKey = KeyCode.S;
+
     #region Def
 
     [Header("          *********Abilities*********")]
     public bool allowWallSlide = true;
     public bool allowGravityInvert = true;
     public bool allowDash = true;
-    [SerializeField] private KeyCode dashKey = KeyCode.LeftShift;
 
     [Header("          *********Dash Settings*********")]
     public float dashSpeed = 20f;
@@ -20,13 +28,13 @@ public class Player : MonoBehaviour
     public float dashCooldown = 0.5f;
     public bool canDash = true;
     public bool isDashing = false;
-    public int airDashCount = 2; // تغییر از 1 به 2
+    public int airDashCount = 2;
     public int currentAirDashes = 0;
     public bool resetAirDashOnGround = true;
     public Color dashTrailColor = Color.white;
     public bool omnidirectionalDash = true;
     public float dashEndVerticalMultiplier = 0.5f;
-    public bool canAddDash =false;
+    public bool canAddDash = false;
 
     [Header("          *********Gravity*********")]
     public bool isGravityInverted = false;
@@ -49,12 +57,6 @@ public class Player : MonoBehaviour
     public float wallJumpingDuration;
     public int jumpcount = 2;
     public bool canDoublejump = true;
-
-    // [Header("          *********Knock*********")]
-    // public bool isKnocked;
-    // private float knockbackDuration = 0.65f;
-    // public Vector2 knockbackPower;
-    // public bool canBeKnocked = true;
 
     [Header("          *********Others*********")]
     public float slidingSpeed = 2f;
@@ -80,7 +82,7 @@ public class Player : MonoBehaviour
         _bc = GetComponent<BoxCollider2D>();
         _trail = GetComponent<TrailRenderer>();
         defaultGravityScale = 4.5f;
-        RespawnFinished(false);
+        //RespawnFinished(false);
         
         if (_trail != null)
         {
@@ -112,10 +114,9 @@ public class Player : MonoBehaviour
         JumpingAnimation();
 
         if (!canBeControlled) return;
-        // if (!isKnocked && !isDashing) MoveX();
         if(!isDashing) MoveX();
 
-        if (allowGravityInvert && Input.GetKeyDown(KeyCode.M))
+        if (allowGravityInvert && Input.GetKeyDown(gravityInvertKey))
         {
             isGravityInverted = !isGravityInverted;
             ToggleGravity();
@@ -141,7 +142,7 @@ public class Player : MonoBehaviour
         RunningAnimation();
         SetWallJumpingOff();
         DoubleJumpAfterWallJumping();
-        WallSlidingFaster();
+        //WallSlidingFaster();
     }
 
     private void TryDash()
@@ -161,10 +162,9 @@ public class Player : MonoBehaviour
             Enemy newEnemy = enemy.GetComponent<Enemy>();
             if (newEnemy != null)
             {
-                // فقط اگر پایین‌تر از دشمن باشیم (برای جلوگیری از برخورد از بغل یا بالا)
                 if (_rb.velocity.y < 0 && transform.position.y > newEnemy.transform.position.y + 0.2f)
                 {
-                    _rb.velocity = new Vector2(_rb.velocity.x, 0); // حذف سرعت قبلی به بالا
+                    _rb.velocity = new Vector2(_rb.velocity.x, 0);
                     _rb.AddForce(Vector2.up * jumpForceAfterhitEnemy, ForceMode2D.Impulse);
                     newEnemy.Die();
                 }
@@ -172,7 +172,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    
     private IEnumerator Dash()
     {
         canDash = false;
@@ -185,7 +184,10 @@ public class Player : MonoBehaviour
         
         if (omnidirectionalDash)
         {
-            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float horizontalInput = 0f;
+            if (Input.GetKey(moveLeftKey)) horizontalInput -= 1f;
+            if (Input.GetKey(moveRightKey)) horizontalInput += 1f;
+            
             float verticalInput = Input.GetAxisRaw("Vertical");
             
             dashDirection = new Vector2(horizontalInput, verticalInput).normalized;
@@ -197,7 +199,10 @@ public class Player : MonoBehaviour
         }
         else
         {
-            float dashDirectionX = Input.GetAxisRaw("Horizontal");
+            float dashDirectionX = 0f;
+            if (Input.GetKey(moveLeftKey)) dashDirectionX -= 1f;
+            if (Input.GetKey(moveRightKey)) dashDirectionX += 1f;
+            
             if (dashDirectionX == 0)
             {
                 dashDirectionX = faceDirection;
@@ -231,7 +236,6 @@ public class Player : MonoBehaviour
             currentAirDashes++;
         }
         
-        // فقط اگر روی زمین هستیم کول داون اعمال می‌شود
         if (isGrounded)
         {
             yield return new WaitForSeconds(dashCooldown);
@@ -353,12 +357,12 @@ public class Player : MonoBehaviour
     {
         float actualJumpForce = isGravityInverted ? -jumpForce : jumpForce;
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isWallDitected)
+        if (Input.GetKeyDown(jumpKey) && isGrounded && !isWallDitected)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, actualJumpForce);
             _anim.SetBool("isJumping", true);
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && !isGrounded && canDoublejump)
+        else if (Input.GetKeyDown(jumpKey) && !isGrounded && canDoublejump)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, actualJumpForce);
             _anim.SetBool("isJumping", true);
@@ -371,33 +375,16 @@ public class Player : MonoBehaviour
         if ((isWallDitected && !isGrounded) || isWallJumping)
             return;
 
-        float moveInput = Input.GetAxis("Horizontal");
+        float moveInput = 0f;
+        if (Input.GetKey(moveLeftKey)) moveInput -= 1f;
+        if (Input.GetKey(moveRightKey)) moveInput += 1f;
+        
         _rb.velocity = new Vector2(moveInput * speed, _rb.velocity.y);
     }
 
-    // public void KnockBack(float sourceDamageXposition)
-    // {
-    //     float KnockBackdir = transform.position.x < sourceDamageXposition ? -1 : 1;
-    //
-    //    // if (isKnocked) return;
-    //
-    //     StartCoroutine(KnockBackRoutin());
-    //     _anim.SetTrigger("Hit");
-    //     _rb.velocity = new Vector2(knockbackPower.x * KnockBackdir, knockbackPower.y);
-    // }
-
-    // IEnumerator KnockBackRoutin()
-    // {
-    //     canBeKnocked = false;
-    //     isKnocked = true;
-    //     yield return new WaitForSeconds(knockbackDuration);
-    //     canBeKnocked = true;
-    //     isKnocked = false;
-    // }
-
     private void DoubleJumpAfterWallJumping()
     {
-        if (isWallJumping && !isWallDitected && Input.GetKeyDown(KeyCode.Space))
+        if (isWallJumping && !isWallDitected && Input.GetKeyDown(jumpKey))
         {
             isWallJumping = false;
         }
@@ -411,19 +398,19 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void WallSlidingFaster()
-    {
-        if (allowWallSlide && isWallDitected && Input.GetKey(KeyCode.S))
-        {
-            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 3f);
-        }
-    }
+    // private void WallSlidingFaster()
+    // {
+    //     if (allowWallSlide && isWallDitected && Input.GetKey(wallSlideFastKey))
+    //     {
+    //         _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 3f);
+    //     }
+    // }
 
     private void WallJump()
     {
         if (!allowWallSlide) return;
 
-        if (isWallDitected && Input.GetKeyDown(KeyCode.Space) && !isGrounded)
+        if (isWallDitected && Input.GetKeyDown(jumpKey) && !isGrounded)
         {
             Flip();
             StartCoroutine(WallJumpingTime());
@@ -431,7 +418,7 @@ public class Player : MonoBehaviour
             jumpcount--;
         }
 
-        if (isWallDitected && Input.GetKeyDown(KeyCode.Space) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) && !isGrounded)
+        if (isWallDitected && Input.GetKeyDown(jumpKey) && (Input.GetKey(moveRightKey) || Input.GetKey(moveLeftKey)) && !isGrounded)
         {
             Flip();
             StartCoroutine(WallJumpingTime());
@@ -439,7 +426,7 @@ public class Player : MonoBehaviour
             jumpcount--;
         }
 
-        if (isWallDitected && Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.W) && !isGrounded)
+        if (isWallDitected && Input.GetKeyDown(jumpKey) && Input.GetKey(KeyCode.W) && !isGrounded)
         {
             Flip();
             StartCoroutine(WallJumpingTime());
@@ -465,7 +452,10 @@ public class Player : MonoBehaviour
         if (isWallDitected && !isGrounded && !isWallJumping)
         {
             isChangeFacingActive = false;
-            _rb.velocity = new Vector2(_rb.velocity.x, -slidingSpeed);
+
+            float slideDirection = isGravityInverted ? 1f : -1f;
+            _rb.velocity = new Vector2(_rb.velocity.x, slideDirection * slidingSpeed);
+
             jumpcount = 2;
         }
         else
@@ -473,6 +463,7 @@ public class Player : MonoBehaviour
             isChangeFacingActive = true;
         }
     }
+
 
     private void FaceDirectionBaseonInt()
     {
@@ -489,11 +480,11 @@ public class Player : MonoBehaviour
     {
         if (!isChangeFacingActive) return;
 
-        if (Input.GetKey(KeyCode.A) && isFacingRight)
+        if (Input.GetKey(moveLeftKey) && isFacingRight)
         {
             Flip();
         }
-        else if (Input.GetKey(KeyCode.D) && !isFacingRight)
+        else if (Input.GetKey(moveRightKey) && !isFacingRight)
         {
             Flip();
         }
