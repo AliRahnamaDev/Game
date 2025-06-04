@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4348600079480422999}
   - component: {fileID: 4348600079480422992}
   - component: {fileID: 4348600079480423003}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: MockingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

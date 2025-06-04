@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6593257702755685452}
   - component: {fileID: 6593257702755685453}
   - component: {fileID: 6593257702755685454}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Trap_Trampoline
   m_TagString: Untagged
   m_Icon: {fileID: 0}

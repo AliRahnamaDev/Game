@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7939304253958219636}
   - component: {fileID: 7939304253958219531}
   - component: {fileID: 7939304253958219639}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 7939304254361352551}
   - component: {fileID: 7939304254361352550}
   - component: {fileID: 7939304254361352544}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: DmageTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7939304254770063759}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7939304255108710563}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BullenSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
