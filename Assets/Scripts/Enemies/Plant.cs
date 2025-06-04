@@ -8,6 +8,7 @@ public class Plant : Enemy
     [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private float fireRate = 1.5f;
     private float fireCooldown;
+    public bool isAttacking;
 
     [SerializeField] private bool playerDetection;
     [SerializeField] private float detectionRange = 5f;
@@ -24,6 +25,7 @@ public class Plant : Enemy
             Attack();
             fireCooldown = fireRate;
         }
+        Animate();
     }
 
     private void Attack()
@@ -38,5 +40,18 @@ public class Plant : Enemy
     {
         base.HandleCollisions();
         playerDetection = Physics2D.Raycast(transform.position, Vector2.right * facingDirection, detectionRange, whatIsPlayer);
+    }
+
+    public void Animate()
+    {
+        if (playerDetection)
+        {
+            isAttacking = true;
+        }
+        else
+        {
+            isAttacking = false;
+        }
+        animator.SetBool("isAttacking",isAttacking);
     }
 }

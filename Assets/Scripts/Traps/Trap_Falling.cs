@@ -75,14 +75,14 @@ public class Trap_Falling : MonoBehaviour
    //   }
    // }
   
-  private void OnTriggerEnter2D(Collider2D other)
-  {
-    Player player = other.gameObject.GetComponent<Player>();
-    if (player != null)
-    {
-      StartCoroutine(FallDelayRoutine());
-    }
-  }
+   private void OnTriggerEnter2D(Collider2D other)
+   {
+     if (other.CompareTag("Player"))
+     {
+       StartCoroutine(FallDelayRoutine());
+     }
+   }
+
 
   private IEnumerator FallDelayRoutine()
   {

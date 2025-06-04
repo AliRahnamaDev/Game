@@ -7,8 +7,7 @@ public class FinishPoint : MonoBehaviour
     private Animator animator => GetComponent<Animator>();
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Player player = other.GetComponent<Player>();
-        if (player != null)
+        if (other.CompareTag("Player"))
         {
             animator.SetTrigger("isActivated");
         }

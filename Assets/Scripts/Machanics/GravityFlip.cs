@@ -20,7 +20,7 @@ public class GravityFlip : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(flipKey) && player.canBeControlled)
+        if (Input.GetKeyDown(flipKey) && player.canBeControlled && player.allowGravityInvert)
         {
             ToggleGravity();
         }

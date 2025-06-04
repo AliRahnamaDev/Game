@@ -50,11 +50,11 @@ public class Player : MonoBehaviour
     public int jumpcount = 2;
     public bool canDoublejump = true;
 
-    [Header("          *********Knock*********")]
-    public bool isKnocked;
-    private float knockbackDuration = 0.65f;
-    public Vector2 knockbackPower;
-    public bool canBeKnocked = true;
+    // [Header("          *********Knock*********")]
+    // public bool isKnocked;
+    // private float knockbackDuration = 0.65f;
+    // public Vector2 knockbackPower;
+    // public bool canBeKnocked = true;
 
     [Header("          *********Others*********")]
     public float slidingSpeed = 2f;
@@ -112,10 +112,12 @@ public class Player : MonoBehaviour
         JumpingAnimation();
 
         if (!canBeControlled) return;
-        if (!isKnocked && !isDashing) MoveX();
+        // if (!isKnocked && !isDashing) MoveX();
+        if(!isDashing) MoveX();
 
         if (allowGravityInvert && Input.GetKeyDown(KeyCode.M))
         {
+            isGravityInverted = !isGravityInverted;
             ToggleGravity();
         }
         
@@ -128,9 +130,6 @@ public class Player : MonoBehaviour
             }
             canAddDash = false;
         }
-        
-        
-        
         if (allowDash && Input.GetKeyDown(dashKey))
         {
             TryDash();
@@ -256,7 +255,7 @@ public class Player : MonoBehaviour
 
     private void ToggleGravity()
     {
-        isGravityInverted = !isGravityInverted;
+        Flip();
         if (isGravityInverted)
         {
             _rb.gravityScale = invertedGravityScale;
@@ -376,25 +375,25 @@ public class Player : MonoBehaviour
         _rb.velocity = new Vector2(moveInput * speed, _rb.velocity.y);
     }
 
-    public void KnockBack(float sourceDamageXposition)
-    {
-        float KnockBackdir = transform.position.x < sourceDamageXposition ? -1 : 1;
+    // public void KnockBack(float sourceDamageXposition)
+    // {
+    //     float KnockBackdir = transform.position.x < sourceDamageXposition ? -1 : 1;
+    //
+    //    // if (isKnocked) return;
+    //
+    //     StartCoroutine(KnockBackRoutin());
+    //     _anim.SetTrigger("Hit");
+    //     _rb.velocity = new Vector2(knockbackPower.x * KnockBackdir, knockbackPower.y);
+    // }
 
-        if (isKnocked) return;
-
-        StartCoroutine(KnockBackRoutin());
-        _anim.SetTrigger("Hit");
-        _rb.velocity = new Vector2(knockbackPower.x * KnockBackdir, knockbackPower.y);
-    }
-
-    IEnumerator KnockBackRoutin()
-    {
-        canBeKnocked = false;
-        isKnocked = true;
-        yield return new WaitForSeconds(knockbackDuration);
-        canBeKnocked = true;
-        isKnocked = false;
-    }
+    // IEnumerator KnockBackRoutin()
+    // {
+    //     canBeKnocked = false;
+    //     isKnocked = true;
+    //     yield return new WaitForSeconds(knockbackDuration);
+    //     canBeKnocked = true;
+    //     isKnocked = false;
+    // }
 
     private void DoubleJumpAfterWallJumping()
     {

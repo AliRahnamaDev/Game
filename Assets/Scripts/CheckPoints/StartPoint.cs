@@ -8,8 +8,7 @@ public class StartPoint : MonoBehaviour
     private Animator animator=>GetComponent<Animator>();
     private void OnTriggerExit2D(Collider2D other)
     {
-        Player player = other.GetComponent<Player>();
-        if (player != null)
+        if (other.CompareTag("Player"))
         {
             animator.SetTrigger("isActivated");
         }

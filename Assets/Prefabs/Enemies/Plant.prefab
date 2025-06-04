@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7939304253958219636}
   - component: {fileID: 7939304253958219531}
   - component: {fileID: 7939304253958219639}
+  - component: {fileID: 1003232199}
   m_Layer: 14
   m_Name: Plant
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +37,7 @@ Transform:
   - {fileID: 7939304254361352551}
   - {fileID: 7939304254770063759}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7939304253958219637
 SpriteRenderer:
@@ -128,7 +129,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7201859948551352493, guid: 2e0aba6ff4e7ec04d83ec27dbd4a7056, type: 3}
   shootPoint: {fileID: 7939304255108710563}
   bulletSpeed: 10
-  fireRate: 1.5
+  fireRate: 0.5
+  isAttacking: 0
   playerDetection: 0
   detectionRange: 10
 --- !u!61 &7939304253958219531
@@ -178,6 +180,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1003232199
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939304253958219530}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a3ccc8eb5991bb459a8778400439239, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &7939304254361352549
 GameObject:
   m_ObjectHideFlags: 0

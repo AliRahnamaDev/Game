@@ -8,12 +8,9 @@ public class DamageScript : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Player player = other.gameObject.GetComponent<Player>();
-        if (player !=null)
+        if (other.tag == "Player")
         {
-            player.KnockBack(transform.position.x);
-            Debug.Log("KnockBack");
+            Debug.Log("Damage");
         }
-        
     }
 }

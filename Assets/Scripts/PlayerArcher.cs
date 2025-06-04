@@ -1,11 +1,20 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerArcher : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody2D rb;
-
+    [SerializeField] private LayerMask whatIsEnemy;
+    [SerializeField] private float EnemyCheckRadius;
+    [SerializeField] private Transform enemyCheck;
+    
+    [Header("AttackDetails")]
+    [SerializeField] private GameObject AttackSource;
+    [SerializeField] private float attackDuration = 0.2f;
+    
     [Header("Movement")]
+    public float jumpForceAfterhitEnemy = 5;
     public float SlowSpeed = 5;
     public float boostSpeed = 7.5f;
     public float jumpForce = 14;
@@ -14,10 +23,14 @@ public class PlayerArcher : MonoBehaviour
     public float FacingDirection = 1;
     public float normalspeedtoland=-2;
     public float minimomspeedtoactivespeedrun;
+    
+    [Space(2)]
     [Header("Jump Settings")]
     public float groundCheckDistance = 0.2f;
     public LayerMask groundLayer;
     public bool isGrounded;
+    
+    [Space(2)]
     [Header("Staus")]
     public bool isJumping = false;
     public bool isWalking = false;
@@ -25,6 +38,8 @@ public class PlayerArcher : MonoBehaviour
     public bool isAttacking = false;
     public bool isShoting = false;
     public bool ShouldLand = false;
+    
+    [Space(2)]
     [Header("Shooting Settings")]
     public GameObject arrowPrefab;
     public Transform arrowSpawnPoint;
@@ -41,12 +56,52 @@ public class PlayerArcher : MonoBehaviour
 
     void Update()
     {
+        HandleEnemyCollision();
         DetectGround();
         HandleJump();  
         SetStatus();      
         HandleMovement();
         HandleFlip();
         Animate();
+        Attack();
+    }
+    
+    public void Attack()
+    {
+        if (isAttacking) // کلیک راست فقط یک‌بار
+        {
+            StartCoroutine(ActivateAttackSource());
+        }
+    }
+
+    
+    IEnumerator ActivateAttackSource()
+    {
+        //Debug.Log("Attack started!"); // برای تست
+        AttackSource.SetActive(true);
+        yield return new WaitForSeconds(attackDuration);
+        AttackSource.SetActive(false);
+        //Debug.Log("Attack ended!");
+    }
+    
+    private void HandleEnemyCollision()
+    {
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(enemyCheck.position, EnemyCheckRadius, whatIsEnemy);
+
+        foreach (var enemy in enemies)
+        {
+            Enemy newEnemy = enemy.GetComponent<Enemy>();
+            if (newEnemy != null)
+            {
+                // فقط اگر پایین‌تر از دشمن باشیم (برای جلوگیری از برخورد از بغل یا بالا)
+                if (rb.velocity.y < -0.01 && transform.position.y > newEnemy.transform.position.y + 0.4f)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, 0); // حذف سرعت قبلی به بالا
+                    rb.AddForce(Vector2.up * jumpForceAfterhitEnemy, ForceMode2D.Impulse);
+                    newEnemy.Die();
+                }
+            }
+        }
     }
     private void ShootArrow()
     {
@@ -127,6 +182,7 @@ public class PlayerArcher : MonoBehaviour
         Vector2 origin2 = new Vector2((transform.position.x + 0.5f), transform.position.y - 0.5f);
         Gizmos.DrawLine(origin, origin + Vector2.down * groundCheckDistance);
         Gizmos.DrawLine(origin2, origin2 + Vector2.down * groundCheckDistance);
+        Gizmos.DrawWireSphere(enemyCheck.position,EnemyCheckRadius);
     }
 
     public void SetStatus()
