@@ -1,18 +1,29 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerArcher : MonoBehaviour
+public class PlayerArcher : MonoBehaviour,IKnockbackable
 {
     private Animator animator;
     private Rigidbody2D rb;
+
+    public bool canMoveHorizontally;
+    
+    [Header("Input Settings")]
+    [SerializeField] private KeyCode moveRightKey = KeyCode.D;
+    [SerializeField] private KeyCode moveLeftKey = KeyCode.A;
+    [SerializeField] private KeyCode runKey = KeyCode.LeftShift;
+    [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] private KeyCode shootKey = KeyCode.Mouse1;
+    [SerializeField] private KeyCode attackKey = KeyCode.Mouse0;
+
     [SerializeField] private LayerMask whatIsEnemy;
     [SerializeField] private float EnemyCheckRadius;
     [SerializeField] private Transform enemyCheck;
-    
+
     [Header("AttackDetails")]
     [SerializeField] private GameObject AttackSource;
     [SerializeField] private float attackDuration = 0.2f;
-    
+
     [Header("Movement")]
     public float jumpForceAfterhitEnemy = 5;
     public float SlowSpeed = 5;
@@ -21,24 +32,24 @@ public class PlayerArcher : MonoBehaviour
     public float speedrunjump;
     public bool isFacingRight = true;
     public float FacingDirection = 1;
-    public float normalspeedtoland=-2;
+    public float normalspeedtoland = -2;
     public float minimomspeedtoactivespeedrun;
-    
+
     [Space(2)]
     [Header("Jump Settings")]
     public float groundCheckDistance = 0.2f;
     public LayerMask groundLayer;
     public bool isGrounded;
-    
+
     [Space(2)]
-    [Header("Staus")]
+    [Header("Status")]
     public bool isJumping = false;
     public bool isWalking = false;
     public bool isRunning = false;
     public bool isAttacking = false;
     public bool isShoting = false;
     public bool ShouldLand = false;
-    
+
     [Space(2)]
     [Header("Shooting Settings")]
     public GameObject arrowPrefab;
@@ -46,7 +57,6 @@ public class PlayerArcher : MonoBehaviour
     public float arrowSpeed = 10f;
     public float fireRate = 0.5f;
     private float nextFireTime = 0f;
-
 
     void Start()
     {
@@ -58,32 +68,29 @@ public class PlayerArcher : MonoBehaviour
     {
         HandleEnemyCollision();
         DetectGround();
-        HandleJump();  
-        SetStatus();      
+        HandleJump();
+        SetStatus();
         HandleMovement();
         HandleFlip();
         Animate();
         Attack();
     }
-    
+
     public void Attack()
     {
-        if (isAttacking) // کلیک راست فقط یک‌بار
+        if (isAttacking)
         {
             StartCoroutine(ActivateAttackSource());
         }
     }
 
-    
     IEnumerator ActivateAttackSource()
     {
-        //Debug.Log("Attack started!"); // برای تست
         AttackSource.SetActive(true);
         yield return new WaitForSeconds(attackDuration);
         AttackSource.SetActive(false);
-        //Debug.Log("Attack ended!");
     }
-    
+
     private void HandleEnemyCollision()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(enemyCheck.position, EnemyCheckRadius, whatIsEnemy);
@@ -93,27 +100,25 @@ public class PlayerArcher : MonoBehaviour
             Enemy newEnemy = enemy.GetComponent<Enemy>();
             if (newEnemy != null)
             {
-                // فقط اگر پایین‌تر از دشمن باشیم (برای جلوگیری از برخورد از بغل یا بالا)
                 if (rb.velocity.y < -0.01 && transform.position.y > newEnemy.transform.position.y + 0.4f)
                 {
-                    rb.velocity = new Vector2(rb.velocity.x, 0); // حذف سرعت قبلی به بالا
+                    rb.velocity = new Vector2(rb.velocity.x, 0);
                     rb.AddForce(Vector2.up * jumpForceAfterhitEnemy, ForceMode2D.Impulse);
                     newEnemy.Die();
                 }
             }
         }
     }
+
     private void ShootArrow()
     {
         if (Time.time < nextFireTime) return;
 
         GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
 
-        // تعیین جهت تیر
         float direction = isFacingRight ? 1f : -1f;
         arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(direction * arrowSpeed, 0f);
 
-        // اگر تیر Sprite یا FlipX داره:
         if (!isFacingRight)
         {
             Vector3 scale = arrow.transform.localScale;
@@ -124,25 +129,26 @@ public class PlayerArcher : MonoBehaviour
         nextFireTime = Time.time + fireRate;
     }
 
-
     public void HandleMovement()
     {
+        if(!canMoveHorizontally)
+            return;
         float moveInput = 0f;
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(moveRightKey))
             moveInput = 1f;
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(moveLeftKey))
             moveInput = -1f;
 
-        float speed = Input.GetKey(KeyCode.LeftShift) ? boostSpeed : SlowSpeed;
+        float speed = Input.GetKey(runKey) ? boostSpeed : SlowSpeed;
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
 
     public void HandleFlip()
     {
-        if (Input.GetKey(KeyCode.D) && !isFacingRight)
+        if (Input.GetKey(moveRightKey) && !isFacingRight)
             Flip();
-        else if (Input.GetKey(KeyCode.A) && isFacingRight)
+        else if (Input.GetKey(moveLeftKey) && isFacingRight)
             Flip();
     }
 
@@ -155,21 +161,20 @@ public class PlayerArcher : MonoBehaviour
 
     public void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isRunning)
+        if (Input.GetKeyDown(jumpKey) && isGrounded && !isRunning)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && isGrounded && minimomspeedtoactivespeedrun<Mathf.Abs(rb.velocity.x))
+        else if (Input.GetKeyDown(jumpKey) && isGrounded && minimomspeedtoactivespeedrun < Mathf.Abs(rb.velocity.x))
         {
             rb.AddForce(Vector2.up * speedrunjump, ForceMode2D.Impulse);
         }
-        
     }
 
     public void DetectGround()
     {
-        Vector2 origin = new Vector2((transform.position.x - 0.5f), transform.position.y - 0.5f);
-        Vector2 origin2 = new Vector2((transform.position.x + 0.5f), transform.position.y - 0.5f);
+        Vector2 origin = new Vector2(transform.position.x - 0.5f, transform.position.y - 0.5f);
+        Vector2 origin2 = new Vector2(transform.position.x + 0.5f, transform.position.y - 0.5f);
         RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, groundCheckDistance, groundLayer);
         RaycastHit2D hit2 = Physics2D.Raycast(origin2, Vector2.down, groundCheckDistance, groundLayer);
         isGrounded = hit.collider != null || hit2.collider != null;
@@ -178,19 +183,19 @@ public class PlayerArcher : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Vector2 origin = new Vector2((transform.position.x - 0.5f), transform.position.y - 0.5f);
-        Vector2 origin2 = new Vector2((transform.position.x + 0.5f), transform.position.y - 0.5f);
+        Vector2 origin = new Vector2(transform.position.x - 0.5f, transform.position.y - 0.5f);
+        Vector2 origin2 = new Vector2(transform.position.x + 0.5f, transform.position.y - 0.5f);
         Gizmos.DrawLine(origin, origin + Vector2.down * groundCheckDistance);
         Gizmos.DrawLine(origin2, origin2 + Vector2.down * groundCheckDistance);
-        Gizmos.DrawWireSphere(enemyCheck.position,EnemyCheckRadius);
+        Gizmos.DrawWireSphere(enemyCheck.position, EnemyCheckRadius);
     }
 
     public void SetStatus()
     {
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && isGrounded)
+        if ((Input.GetKey(moveLeftKey) || Input.GetKey(moveRightKey)) && isGrounded)
         {
             isWalking = true;
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(runKey))
             {
                 isWalking = false;
                 isRunning = true;
@@ -205,10 +210,10 @@ public class PlayerArcher : MonoBehaviour
             isWalking = false;
             isRunning = false;
         }
-        
+
         isJumping = !isGrounded;
-        
-        if (Input.GetMouseButton(1) && isGrounded && !isRunning && !isWalking)
+
+        if (Input.GetKey(shootKey) && isGrounded && !isRunning && !isWalking)
         {
             ShootArrow();
             isShoting = true;
@@ -217,7 +222,8 @@ public class PlayerArcher : MonoBehaviour
         {
             isShoting = false;
         }
-        if (Input.GetMouseButton(0))
+
+        if (Input.GetKey(attackKey))
         {
             isAttacking = true;
         }
@@ -225,14 +231,9 @@ public class PlayerArcher : MonoBehaviour
         {
             isAttacking = false;
         }
-        if (rb.velocity.y < normalspeedtoland)
-        {
-            ShouldLand = true;
-        }
-        else
-        {
-            ShouldLand = false;
-        }
+
+        ShouldLand = rb.velocity.y < normalspeedtoland;
+        
         if (isJumping)
         {
             isWalking = false;
@@ -240,7 +241,6 @@ public class PlayerArcher : MonoBehaviour
         }
     }
 
-    
     public void Animate()
     {
         animator.SetBool("isShoting", isShoting);
@@ -249,5 +249,16 @@ public class PlayerArcher : MonoBehaviour
         animator.SetBool("isJumping", isJumping);
         animator.SetBool("canLand", ShouldLand);
         animator.SetBool("isAttacking", isAttacking);
+    }
+    public void PauseHorizontalMovement(float duration)
+    {
+        StartCoroutine(PauseX(duration));
+    }
+
+    private IEnumerator PauseX(float time)
+    {
+        canMoveHorizontally = false;
+        yield return new WaitForSeconds(time);
+        canMoveHorizontally = true;
     }
 }

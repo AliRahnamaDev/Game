@@ -29,7 +29,7 @@ public class PlayerTransformController : MonoBehaviour
 
     void SwitchForm()
     {
-        Vector3 previousPosition = currentForm.transform.position;
+        Vector3 previousPosition = new Vector3(currentForm.transform.position.x, currentForm.transform.position.y+1, currentForm.transform.position.z);
 
         currentForm.SetActive(false);
         currentForm = (currentForm == form1) ? form2 : form1;

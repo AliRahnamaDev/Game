@@ -103,7 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
-  sourceTag: Player
+  targetTag: Enemy
+  attacker: {fileID: 0}
 --- !u!1 &8425107507519935091
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +119,7 @@ GameObject:
   - component: {fileID: 8425107507519935089}
   - component: {fileID: 8425107507519935088}
   - component: {fileID: 8425107507519934989}
+  - component: {fileID: 9034608264060286888}
   m_Layer: 13
   m_Name: Player_Archer
   m_TagString: Player
@@ -274,6 +276,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e5dc4e8bab2474bb9927f20613201c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMoveHorizontally: 0
+  moveRightKey: 100
+  moveLeftKey: 97
+  runKey: 304
+  jumpKey: 32
+  shootKey: 324
+  attackKey: 323
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 16384
@@ -305,6 +314,19 @@ MonoBehaviour:
   arrowSpawnPoint: {fileID: 8425107507773981651}
   arrowSpeed: 60
   fireRate: 0.8
+--- !u!114 &9034608264060286888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425107507519935091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e581ba573d4348459cf2eb6287b605e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &8425107507773981650
 GameObject:
   m_ObjectHideFlags: 0

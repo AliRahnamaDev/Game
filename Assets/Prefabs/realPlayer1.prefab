@@ -258,6 +258,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2474ad04f36be4fbafaf5781f54fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBlocking: 0
+  blockDamageMultiplier: 0.1
+  blockKnockbackMultiplier: 0.1
+  canMoveHorizontally: 1
+  moveRightKey: 100
+  moveLeftKey: 97
+  runKey: 304
+  jumpKey: 32
+  attackKey: 323
+  blockKey: 324
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 16384
@@ -269,9 +279,13 @@ MonoBehaviour:
   walkSpeed: 6
   runSpeed: 12
   jumpForce: 18
-  canDoubleJump: 1
+  WallslideSpeed: 1.5
+  Jumpmultiplier: 1.25
+  WallJumpxForce: 10
+  WallJumpyForce: 15
   canFlip: 1
   isGrounded: 0
+  IsWallDitected: 0
   isJumping: 0
   isRunning: 0
   isWalking: 0
@@ -279,10 +293,12 @@ MonoBehaviour:
   isFacingRight: 1
   facingDirection: 1
   isAttacking: 0
+  wallCheckDistance: 0.8
   groundCheckDistance: 1.7
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  wallJumpControlLockTime: 0.6
 --- !u!95 &2578993073843242300
 Animator:
   serializedVersion: 5
@@ -409,7 +425,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7808929744006644916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.15, z: 0.63861287}
+  m_LocalPosition: {x: -0.2, y: 0.2, z: 0.63861287}
   m_LocalScale: {x: 0.893, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -551,15 +567,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8058ca1aac9bed468db49b19f586c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMoveHorizontally: 1
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 16896
   EnemyCheckRadius: 0.5
   enemyCheck: {fileID: 7808929744931909136}
+  moveLeftKey: 97
+  moveRightKey: 100
+  jumpKey: 32
+  dashKey: 303
+  gravityInvertKey: 109
+  wallSlideFastKey: 115
   allowWallSlide: 1
   allowGravityInvert: 0
   allowDash: 1
-  dashKey: 303
   dashSpeed: 20
   dashDuration: 0.3
   dashCooldown: 0.5
@@ -881,7 +903,7 @@ GameObject:
   - component: {fileID: 9155057541311411766}
   m_Layer: 0
   m_Name: realPlayer1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -901,7 +923,7 @@ Transform:
   - {fileID: 7808929744006644912}
   - {fileID: 2578993073843242275}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9155057541311411767
 MonoBehaviour:
@@ -915,7 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc11de7ddde92c4c959ad834851ac20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 1000
 --- !u!114 &9155057541311411766
 MonoBehaviour:
   m_ObjectHideFlags: 0

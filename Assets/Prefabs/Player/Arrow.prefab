@@ -72,7 +72,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
-  sourceTag: Player
+  targetTag: Enemy
+  attacker: {fileID: 0}
 --- !u!1 &4053576999536632504
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +199,13 @@ MonoBehaviour:
   embedDepth: 0.1
   destroyDelay: 0.2
   fadeDuration: 0.2
+  instantDestroyLayers:
+  - Enemy
+  fadeDestroyLayers:
+  - Ground
+  ignoreCollisionLayers:
+  - BackGround
+  - Player
 --- !u!61 &2552524811663931252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -237,4 +245,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
-  sourceTag: Player
+  targetTag: Enemy
+  attacker: {fileID: 4053576999536632504}

@@ -1,8 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour,IKnockbackable
 {
+    public bool canMoveHorizontally = true;
     [SerializeField] private LayerMask whatIsEnemy;
     [SerializeField] private float EnemyCheckRadius;
     [SerializeField] private Transform enemyCheck;
@@ -372,7 +373,7 @@ public class Player : MonoBehaviour
 
     public void MoveX()
     {
-        if ((isWallDitected && !isGrounded) || isWallJumping)
+        if ((isWallDitected && !isGrounded) || isWallJumping || !canMoveHorizontally)
             return;
 
         float moveInput = 0f;
@@ -488,5 +489,17 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
+    }
+
+    public void PauseHorizontalMovement(float duration)
+    {
+        StartCoroutine(PauseX(duration));
+    }
+
+    private IEnumerator PauseX(float time)
+    {
+        canMoveHorizontally = false;
+        yield return new WaitForSeconds(time);
+        canMoveHorizontally = true;
     }
 }

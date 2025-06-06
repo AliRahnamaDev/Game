@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 1569014261355232646}
   - component: {fileID: 8761935675498030142}
   - component: {fileID: 1569014259975445023}
+  - component: {fileID: -7332525071700503580}
+  - component: {fileID: -7745587577068833460}
   m_Layer: 13
   m_Name: Player 2
   m_TagString: Player
@@ -154,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8058ca1aac9bed468db49b19f586c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMoveHorizontally: 1
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 16896
@@ -271,6 +274,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-7332525071700503580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569014259975445018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6eb9f1468cfd814c8fbf02d798d56d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 10
+  enableKnockback: 1
+  horizontalForce: 5
+  verticalForce: 3
+--- !u!114 &-7745587577068833460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569014259975445018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e581ba573d4348459cf2eb6287b605e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1569014260404992568
 GameObject:
   m_ObjectHideFlags: 0
