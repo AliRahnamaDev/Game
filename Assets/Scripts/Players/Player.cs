@@ -1,7 +1,8 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
-public class Player : MonoBehaviour,IKnockbackable
+public class Player : MonoBehaviour,IKnockbackable,IRespawnable
 {
     public bool canMoveHorizontally = true;
     [SerializeField] private LayerMask whatIsEnemy;
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour,IKnockbackable
     public KeyCode gravityInvertKey = KeyCode.M;
     public KeyCode wallSlideFastKey = KeyCode.S;
 
+    private SpriteRenderer spriteRenderer;
+    private BoxCollider2D boxCollider;
     #region Def
 
     [Header("          *********Abilities*********")]
@@ -78,12 +81,14 @@ public class Player : MonoBehaviour,IKnockbackable
 
     void Start()
     {
+        damageable = GetComponent<Damageable>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _bc = GetComponent<BoxCollider2D>();
         _trail = GetComponent<TrailRenderer>();
         defaultGravityScale = 4.5f;
-        //RespawnFinished(false);
         
         if (_trail != null)
         {
@@ -294,12 +299,12 @@ public class Player : MonoBehaviour,IKnockbackable
         }
     }
 
-    public void Die()
-    {
-        Destroy(gameObject);
-        GameObject newFx = Instantiate(DeadVfx, transform.position, Quaternion.identity);
-        Destroy(newFx, 0.3f);
-    }
+    // public void Die()
+    // {
+    //     Destroy(gameObject);
+    //     GameObject newFx = Instantiate(DeadVfx, transform.position, Quaternion.identity);
+    //     Destroy(newFx, 0.3f);
+    // }
 
     private void GroundDetect()
     {
@@ -502,4 +507,73 @@ public class Player : MonoBehaviour,IKnockbackable
         yield return new WaitForSeconds(time);
         canMoveHorizontally = true;
     }
-}
+    
+    
+    private Damageable damageable;
+    
+        public bool IsDead { get; private set; } = false;
+        public GameObject respawnPrefab;
+
+        private Animator animator;
+
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        public void OnDeath()
+        {
+            if (IsDead) return;
+
+            IsDead = true;
+
+            //animator.SetBool("isDied", true);
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+            StartCoroutine(RespawnCoroutine());
+        }
+        
+        
+        public GameObject GetGameObject() => gameObject;
+
+        private IEnumerator RespawnCoroutine()
+        {
+            spriteRenderer.enabled = false;
+            _rb.bodyType = RigidbodyType2D.Static;
+            boxCollider.enabled = false;
+
+            yield return new WaitForSeconds(15);
+
+            Transform otherPlayer = FindOtherAlivePlayer();
+            if (otherPlayer != null)
+            {
+                transform.position = otherPlayer.position;
+                gameObject.SetActive(true);
+
+                spriteRenderer.enabled = true;
+                _rb.bodyType = RigidbodyType2D.Dynamic;
+                boxCollider.enabled = true;
+
+                damageable.Revive(); // 👈 فقط این کافیه
+                IsDead = false;
+            }
+            else
+            {
+                UIManager.Instance.ShowGameOverMenu();
+            }
+        }
+
+
+
+        private Transform FindOtherAlivePlayer()
+        {
+            IRespawnable[] players = FindObjectsOfType<MonoBehaviour>().OfType<IRespawnable>().ToArray();
+            foreach (var player in players)
+            {
+                if (!player.IsDead && player.GetGameObject() != this.gameObject)
+                    return player.GetGameObject().transform;
+            }
+            return null;
+        }
+    }
+    

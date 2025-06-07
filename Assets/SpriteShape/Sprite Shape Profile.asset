@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sprite Shape Profile
   m_EditorClassIdentifier: 
   m_Angles: []
-  m_FillTexture: {fileID: 2800000, guid: e91ae55a3381fcf45a60f4eebfc6de6a, type: 3}
+  m_FillTexture: {fileID: 2800000, guid: f806d8f186d76e244a6a2948c117ba6f, type: 3}
   m_CornerSprites:
   - m_CornerType: 0
     m_Sprites:

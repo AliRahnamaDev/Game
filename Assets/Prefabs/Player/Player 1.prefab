@@ -223,15 +223,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8058ca1aac9bed468db49b19f586c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMoveHorizontally: 1
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 16896
   EnemyCheckRadius: 0.5
   enemyCheck: {fileID: 7808929744931909136}
+  moveLeftKey: 97
+  moveRightKey: 100
+  jumpKey: 32
+  dashKey: 303
+  gravityInvertKey: 109
+  wallSlideFastKey: 115
   allowWallSlide: 1
   allowGravityInvert: 0
   allowDash: 1
-  dashKey: 303
   dashSpeed: 20
   dashDuration: 0.3
   dashCooldown: 0.5
@@ -272,6 +278,7 @@ MonoBehaviour:
   DeadVfx: {fileID: 9105483519441725880, guid: 94cb8db6bb5d5184ab098935bc549b12, type: 3}
   canBeControlled: 1
   _rb: {fileID: 0}
+  respawnPrefab: {fileID: 0}
 --- !u!114 &7808929745319355218
 MonoBehaviour:
   m_ObjectHideFlags: 0

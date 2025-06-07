@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy_Mushroom : Enemy
@@ -45,5 +48,4 @@ public class Enemy_Mushroom : Enemy
             animator.SetBool("isRunning", false);
         }
     }
-    
 }

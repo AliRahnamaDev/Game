@@ -82,7 +82,7 @@ Transform:
   - {fileID: 5649108863602964362}
   - {fileID: 5965057204656960048}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2217836393202854018
 MonoBehaviour:
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  SpawnPoint: {fileID: 0}
 --- !u!1 &5649108863602964469
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +129,7 @@ GameObject:
   - component: {fileID: 5649108863602964363}
   - component: {fileID: 1915089531292247584}
   m_Layer: 13
-  m_Name: Player_Archer
+  m_Name: PlayerForm2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -670,7 +671,7 @@ GameObject:
   - component: {fileID: 5965057204656960049}
   - component: {fileID: 6659403318407319527}
   m_Layer: 13
-  m_Name: Player 2
+  m_Name: PlayerForm1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -684,7 +685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5965057204656960052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.59, y: 0.4, z: -1.1081132}
+  m_LocalPosition: {x: -6.61, y: 0.66, z: -1.1081132}
   m_LocalScale: {x: 0.893, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -861,6 +862,7 @@ MonoBehaviour:
   DeadVfx: {fileID: 9105483519441725880, guid: 94cb8db6bb5d5184ab098935bc549b12, type: 3}
   canBeControlled: 1
   _rb: {fileID: 0}
+  respawnPrefab: {fileID: 0}
 --- !u!114 &5965057203889247698
 MonoBehaviour:
   m_ObjectHideFlags: 0

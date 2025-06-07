@@ -7,7 +7,7 @@ public class Damageable : MonoBehaviour
     public float dieAnimationDuration = 0.7f; // زمان نمایش انیمیشن مرگ
 
     private Animator animator;
-    private bool isDead = false;
+    public bool isDead = false;
 
     private void Awake()
     {
@@ -37,19 +37,16 @@ public class Damageable : MonoBehaviour
     private void Die()
     {
         isDead = true;
-
         SetAnimatorBoolSafe("isDied", true);
 
-        // اطلاع‌رسانی به دیگر اسکریپت‌ها بدون وابستگی
-        SendMessage("OnDeath", SendMessageOptions.DontRequireReceiver);
-        
+        SendMessage("OnDeath", SendMessageOptions.DontRequireReceiver); // همچنان خوبه
+        var respawnable = GetComponent<IRespawnable>();
+        if (respawnable != null)
+            respawnable.OnDeath();
 
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb) rb.velocity = Vector2.zero;
-
-        // حذف نهایی پس از اجرای انیمیشن
-        Destroy(gameObject, dieAnimationDuration);
+        // دیگر Destroy نکن، چون respawn خودش مدیریت می‌کنه
     }
+
 
     private void SetAnimatorBoolSafe(string param, bool value)
     {
@@ -74,4 +71,12 @@ public class Damageable : MonoBehaviour
         yield return new WaitForSeconds(delay);
         SetAnimatorBoolSafe(param, false);
     }
+    
+    public void Revive(float newHealth = 100f)
+    {
+        health = newHealth;
+        isDead = false;
+        SetAnimatorBoolSafe("isDied", false); // انیمیشن مرگ خاموش بشه
+    }
+
 }
