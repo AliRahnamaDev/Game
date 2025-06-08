@@ -51,11 +51,10 @@ public class SharedDamageable : MonoBehaviour
         }
 
         yield return new WaitForEndOfFrame();
-
-        // 🎯 بررسی Game Over
+        
         if (IsGameOver())
         {
-            UIManager.Instance.ShowGameOverMenu(); // 👈 نمایش منوی گیم اور
+            UIManager.Instance.ShowGameOverMenu();
             yield break;
         }
 
@@ -79,8 +78,8 @@ public class SharedDamageable : MonoBehaviour
 
         Vector3 spawnPosition = spawnChild.position;
 
-        if (player1 != null) player1.position = new Vector2(spawnPosition.x + 1, player1.position.y + 5);
-        if (player2 != null) player2.position = new Vector2(spawnPosition.x + 1, player1.position.y + 5);
+        if (player1 != null) player1.position = new Vector2(spawnPosition.x+1 , player1.position.y+5 );
+        if (player2 != null) player2.position = new Vector2(spawnPosition.x+1 , player1.position.y+5 );
 
         for (int i = 0; i < 2; i++)
         {
