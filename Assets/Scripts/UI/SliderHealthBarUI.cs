@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro; // اگر از TextMeshPro استفاده می‌کنی
 
 public class SliderHealthBarUI : MonoBehaviour
 {
     [SerializeField] private Slider slider;
+    [SerializeField] private TMP_Text livesText; // 🔺 نمایش جان‌ها
     private SharedDamageable target;
     private float maxHealth;
 
@@ -19,6 +21,7 @@ public class SliderHealthBarUI : MonoBehaviour
     {
         if (target == null) return;
 
+        // مقداردهی اولیه
         if (!isInitialized)
         {
             maxHealth = target.health;
@@ -29,7 +32,14 @@ public class SliderHealthBarUI : MonoBehaviour
             Debug.Log($"✅ HealthBar for {gameObject.name} initialized with maxHealth: {maxHealth}");
         }
 
+        // آپدیت مقدار سلامت
         slider.value = Mathf.Clamp(target.health, 0, maxHealth);
+
+        // 🔺 آپدیت lives در UI
+        if (livesText != null)
+        {
+            livesText.text = "♥ " + target.totalLives.ToString();
+        }
     }
 
     public void SetTarget(SharedDamageable shared)

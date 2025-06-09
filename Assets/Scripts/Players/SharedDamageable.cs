@@ -8,6 +8,16 @@ public class SharedDamageable : MonoBehaviour
     public GameObject SpawnPoint;
     private bool isDead = false;
 
+    public int totalLives = 2;
+
+    private void Update()
+    {
+        if (totalLives <= 0)
+        {
+            UIManager.Instance.ShowGameOverMenu();
+        }
+    }
+
     public void TakeDamage(float amount)
     {
         if (isDead) return;
@@ -24,6 +34,7 @@ public class SharedDamageable : MonoBehaviour
 
     private IEnumerator Die()
     {
+        totalLives = totalLives - 1;
         Transform player1 = transform.Find("PlayerForm1");
         Transform player2 = transform.Find("PlayerForm2");
 
@@ -58,7 +69,7 @@ public class SharedDamageable : MonoBehaviour
             yield break;
         }
 
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(3f);
 
         Transform spawnChild = null;
         foreach (Transform child in SpawnPoint.transform)
@@ -91,8 +102,16 @@ public class SharedDamageable : MonoBehaviour
         health = 100f;
         isDead = false;
     }
+    
+    public void Heal(float amount)
+    {
+        if (health <= 0) return; // اگر مرده، هیچی
+        health += amount;
+        if (health > 100f) health = 100f; // محدود کردن به maxHealth
+        Debug.Log($"✅ Healed! New health: {health}");
+    }
 
-
+    
     private bool IsGameOver()
     {
         GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");

@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2963639446130271196}
   - component: {fileID: 2963639446130271199}
   - component: {fileID: -853403031779539132}
+  - component: {fileID: -7282207692323718118}
   m_Layer: 14
   m_Name: Enemy_Mushroom
   m_TagString: Enemy
@@ -223,6 +224,21 @@ MonoBehaviour:
   idleDuration: 2
   player: {fileID: 7201859948551352495, guid: 2e0aba6ff4e7ec04d83ec27dbd4a7056, type: 3}
   CanDead: 1
+--- !u!114 &-7282207692323718118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963639446130271190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e581ba573d4348459cf2eb6287b605e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  dieAnimationDuration: 0.7
+  isDead: 0
 --- !u!1 &5380818107626040035
 GameObject:
   m_ObjectHideFlags: 0

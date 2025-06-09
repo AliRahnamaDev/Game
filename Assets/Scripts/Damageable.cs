@@ -39,13 +39,20 @@ public class Damageable : MonoBehaviour
         isDead = true;
         SetAnimatorBoolSafe("isDied", true);
 
-        SendMessage("OnDeath", SendMessageOptions.DontRequireReceiver); // همچنان خوبه
+        SendMessage("OnDeath", SendMessageOptions.DontRequireReceiver);
+
         var respawnable = GetComponent<IRespawnable>();
         if (respawnable != null)
-            respawnable.OnDeath();
-
-        // دیگر Destroy نکن، چون respawn خودش مدیریت می‌کنه
+        {
+            respawnable.OnDeath(); // پلیرها
+        }
+        else
+        {
+            // انمی‌ها، حذف خودکار بعد از پایان انیمیشن مرگ
+            Destroy(gameObject, dieAnimationDuration);
+        }
     }
+
 
 
     private void SetAnimatorBoolSafe(string param, bool value)

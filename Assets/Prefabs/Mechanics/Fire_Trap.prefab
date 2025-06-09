@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6831813476635805386}
   - component: {fileID: 6831813476635805389}
   - component: {fileID: 6831813476635805399}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1719382623
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: 784684882, guid: 3bfbd046d1a7ff44da20da1797a4ec65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,6 +187,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6eb9f1468cfd814c8fbf02d798d56d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageAmount: 10
+  enableKnockback: 1
+  horizontalForce: 5
+  verticalForce: 3
 --- !u!1 &6831813476875533053
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6831813476875533050}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire_Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +222,7 @@ Transform:
   - {fileID: 6831813476635805398}
   - {fileID: 6831813478233958839}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6831813478233958828
 GameObject:
@@ -234,7 +238,7 @@ GameObject:
   - component: {fileID: 6831813478233958827}
   - component: {fileID: 6831813478233958826}
   - component: {fileID: 6831813478233958829}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,8 +298,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1719382623
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: 644908116, guid: 45f28d2833181f04daf4089c9c3a89bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

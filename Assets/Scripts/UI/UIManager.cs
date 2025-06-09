@@ -24,51 +24,51 @@ public class UIManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    // Called automatically when a new scene is loaded
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log("Scene loaded: " + scene.name);
-        StartCoroutine(RebindMenusWithDelay());
-    }
-
-    private IEnumerator RebindMenusWithDelay()
-    {
-        // Wait for scene UI to be fully instantiated
-        yield return new WaitForSeconds(0.05f);
-        RebindMenus();
-    }
-
-    // Reconnects menu panel references after scene change
-    public void RebindMenus()
-    {
-        Canvas mainCanvas = FindObjectOfType<Canvas>();
-
-        if (mainCanvas == null)
-        {
-            Debug.LogWarning("UIManager: Canvas not found!");
-            return;
-        }
-
-        Transform canvasTransform = mainCanvas.transform;
-
-        mainMenu = canvasTransform.Find("MainMenuPanel")?.gameObject;
-        pauseMenu = canvasTransform.Find("PauseMenuPanel")?.gameObject;
-        gameOverMenu = canvasTransform.Find("GameOverPanel")?.gameObject;
-        settingsMenu = canvasTransform.Find("SettingsPanel")?.gameObject;
-
-        Debug.Log("UIManager: Menus rebound.");
-    }
+    //
+    // private void OnEnable()
+    // {
+    //     SceneManager.sceneLoaded += OnSceneLoaded;
+    // }
+    //
+    // private void OnDisable()
+    // {
+    //     SceneManager.sceneLoaded -= OnSceneLoaded;
+    // }
+    //
+    // // Called automatically when a new scene is loaded
+    // private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    // {
+    //     Debug.Log("Scene loaded: " + scene.name);
+    //     StartCoroutine(RebindMenusWithDelay());
+    // }
+    //
+    // private IEnumerator RebindMenusWithDelay()
+    // {
+    //     // Wait for scene UI to be fully instantiated
+    //     yield return new WaitForSeconds(0.05f);
+    //     RebindMenus();
+    // }
+    //
+    // // Reconnects menu panel references after scene change
+    // public void RebindMenus()
+    // {
+    //     Canvas mainCanvas = FindObjectOfType<Canvas>();
+    //
+    //     if (mainCanvas == null)
+    //     {
+    //         Debug.LogWarning("UIManager: Canvas not found!");
+    //         return;
+    //     }
+    //
+    //     Transform canvasTransform = mainCanvas.transform;
+    //
+    //     mainMenu = canvasTransform.Find("MainMenuPanel")?.gameObject;
+    //     pauseMenu = canvasTransform.Find("PauseMenuPanel")?.gameObject;
+    //     gameOverMenu = canvasTransform.Find("GameOverPanel")?.gameObject;
+    //     settingsMenu = canvasTransform.Find("SettingsPanel")?.gameObject;
+    //
+    //     Debug.Log("UIManager: Menus rebound.");
+    // }
 
     public void CloseAllMenus()
     {
@@ -145,7 +145,7 @@ public class UIManager : MonoBehaviour
 
         SceneManager.LoadScene(currentSceneIndex);
         yield return null; // wait 1 frame
-        RebindMenus();
+       // RebindMenus();
     }
 
   public void ExitToMainMenu()
@@ -159,7 +159,7 @@ private IEnumerator LoadMainMenuScene()
     SceneManager.LoadScene(0); // Main Menu scene
     yield return null;
 
-    RebindMenus(); // ← رفرنس‌ها رو مجدد بگیر
+ //   RebindMenus(); // ← رفرنس‌ها رو مجدد بگیر
 
     ShowMainMenu(); // ← منوی اصلی رو نمایش بده
 }

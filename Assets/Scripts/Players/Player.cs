@@ -265,16 +265,15 @@ public class Player : MonoBehaviour,IKnockbackable,IRespawnable
 
     private void ToggleGravity()
     {
-        Flip();
         if (isGravityInverted)
         {
             _rb.gravityScale = invertedGravityScale;
-            transform.localRotation = Quaternion.Euler(180, 0, 0);
+            transform.rotation = Quaternion.Euler(0f, 0, 180f);
         }
         else
         {
             _rb.gravityScale = defaultGravityScale;
-            transform.localRotation = Quaternion.identity;
+            transform.rotation = Quaternion.Euler(0f, 0, 0f);
         }
     }
 
