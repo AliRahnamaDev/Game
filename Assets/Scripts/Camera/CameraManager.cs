@@ -20,8 +20,8 @@ public class CameraManager : MonoBehaviour
     [SerializeField] [Range(1f, 20f)] private float _player2CamSize = 5f;
 
     [Header("References")]
-    [SerializeField] private Transform _player1; // باید پدر (realPlayer) باشد
-    [SerializeField] private Transform _player2; // پدر دوم (realPlayer دیگر)
+    [SerializeField] private Transform _player1;
+    [SerializeField] private Transform _player2; 
     [SerializeField] private Camera _singleCam;
     [SerializeField] private Camera _player1Cam;
     [SerializeField] private Camera _player2Cam;
@@ -100,6 +100,6 @@ public class CameraManager : MonoBehaviour
     {
         var follow = cam.GetComponent<CameraFollow>();
         if (follow != null)
-            follow.SetTarget(parent); // فقط پدر، نه فرزند
+            follow.SetTarget(parent);
     }
 }

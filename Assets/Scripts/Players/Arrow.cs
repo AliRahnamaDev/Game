@@ -7,13 +7,11 @@ public class Arrow : MonoBehaviour
     private bool stuck = false;
 
     [Header("Settings")]
-    [Tooltip("مقدار فرو رفتن تیر به داخل زمین")]
+    
     public float embedDepth = 0.1f;
-
-    [Tooltip("مدت زمان تا شروع محو شدن")]
+    
     public float destroyDelay = 3f;
-
-    [Tooltip("مدت زمان محو شدن")]
+    
     public float fadeDuration = 1f;
 
     [Header("Layer Behavior Lists")]
@@ -30,7 +28,7 @@ public class Arrow : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // ⏳ اگر تا 3 ثانیه هیچ برخوردی اتفاق نیفتاد، نابود شو
+        // اگر تا 3 ثانیه هیچ برخوردی اتفاق نیفتاد نابود شو
         Invoke(nameof(SelfDestructIfUnstuck), 3f);
     }
     void SelfDestructIfUnstuck()
@@ -42,30 +40,26 @@ public class Arrow : MonoBehaviour
         }
     }
 
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (stuck) return;
 
         string hitLayerName = LayerMask.LayerToName(collision.collider.gameObject.layer);
         Debug.Log($"Arrow hit: {collision.gameObject.name} on layer {hitLayerName}");
-
-        // 🟩 Ignore list: هیچ کاری نکن
+        
         if (ignoreCollisionLayers.Contains(hitLayerName))
         {
             Debug.Log("Collision ignored (safe layer)");
             return;
         }
-
-        // 🟥 Destroy immediately
+        
         if (instantDestroyLayers.Contains(hitLayerName))
         {
             Debug.Log("Instant destroy layer hit!");
             Destroy(gameObject);
             return;
         }
-
-        // 🟨 Fade & stick
+        
         if (fadeDestroyLayers.Contains(hitLayerName))
         {
             Debug.Log("Fade destroy layer hit!");
@@ -73,8 +67,7 @@ public class Arrow : MonoBehaviour
             Invoke(nameof(StartFadeOut), destroyDelay);
             return;
         }
-
-        // پیش‌فرض: نابود
+        //by defualt
         Debug.Log("Uncategorized layer → destroy by default");
         Destroy(gameObject);
     }

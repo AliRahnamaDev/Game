@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [Header("Follow Settings")]
-    private Transform _parent; // فقط مقداردهی در زمان اجرا
+    private Transform _parent;
     [SerializeField] private Vector3 _offset = new Vector3(0, 0, -10);
     [SerializeField, Range(0.01f, 1f)] private float _smoothness = 0.1f;
 
@@ -12,10 +12,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Vector2 maxPosition;
 
     private Transform _currentTarget;
-
-    /// <summary>
-    /// دریافت پدر واقعی فرم‌ها (realPlayer)
-    /// </summary>
+    
     public void SetTarget(Transform parentOfForms)
     {
         _parent = parentOfForms;
@@ -25,8 +22,7 @@ public class CameraFollow : MonoBehaviour
     private void LateUpdate()
     {
         if (_parent == null) return;
-
-        // پیدا کردن فرزند فعال در هر فریم
+        
         Transform newTarget = GetActiveChild(_parent);
         if (newTarget != null)
         {

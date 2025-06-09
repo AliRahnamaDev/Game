@@ -51,6 +51,7 @@ public class Damageable : MonoBehaviour
             // انمی‌ها، حذف خودکار بعد از پایان انیمیشن مرگ
             Destroy(gameObject, dieAnimationDuration);
         }
+        AudioManager.Instance.PlaySFX(SFXType.Die);
     }
 
 

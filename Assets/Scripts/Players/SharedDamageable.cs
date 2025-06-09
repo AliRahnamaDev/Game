@@ -69,7 +69,7 @@ public class SharedDamageable : MonoBehaviour
             yield break;
         }
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(10f);
 
         Transform spawnChild = null;
         foreach (Transform child in SpawnPoint.transform)
@@ -89,8 +89,8 @@ public class SharedDamageable : MonoBehaviour
 
         Vector3 spawnPosition = spawnChild.position;
 
-        if (player1 != null) player1.position = new Vector2(spawnPosition.x+1 , player1.position.y+5 );
-        if (player2 != null) player2.position = new Vector2(spawnPosition.x+1 , player1.position.y+5 );
+        if (player1 != null) player1.position = new Vector2(spawnPosition.x , spawnPosition.y+2 );
+        if (player2 != null) player2.position = new Vector2(spawnPosition.x , spawnPosition.y+2 );
 
         for (int i = 0; i < 2; i++)
         {

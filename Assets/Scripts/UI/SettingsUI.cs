@@ -1,8 +1,5 @@
 using UnityEngine;
 using TMPro;
-// احتمالاً برای مدیریت صدا و دوربین به namespace های دیگری نیاز خواهید داشت
-// using YourGame.Audio;
-// using YourGame.CameraManagement;
 
 public class SettingsUI : MonoBehaviour
 {
@@ -31,20 +28,7 @@ public class SettingsUI : MonoBehaviour
 
     void SetupDropdownOptions()
     {
-        // Split screen options
-       // splitScreenDropdown.options.Clear();
-       // splitScreenDropdown.options.Add(new TMP_Dropdown.OptionData("Single Camera"));
-        //splitScreenDropdown.options.Add(new TMP_Dropdown.OptionData("Split Horizontal"));
-       // splitScreenDropdown.options.Add(new TMP_Dropdown.OptionData("Split Vertical"));
-        // برای اینکه هنگام تغییر گزینه، متد OnSplitScreenModeChanged فراخوانی شود، باید در یونیتی این را تنظیم کنید
-        // در Inspector، روی Dropdown کلیک کنید، در بخش "On Value Changed (Int)"، این اسکریپت را درگ کرده و متد OnSplitScreenModeChanged(int) را انتخاب کنید
-
-        // Camera control options
-       // cameraControlDropdown.options.Clear();
-       // cameraControlDropdown.options.Add(new TMP_Dropdown.OptionData("Player1"));
-       // cameraControlDropdown.options.Add(new TMP_Dropdown.OptionData("Player2"));
-         // برای اینکه هنگام تغییر گزینه، متد OnCameraControlChanged فراخوانی شود، باید در یونیتی این را تنظیم کنید
-        // در Inspector، روی Dropdown کلیک کنید، در بخش "On Value Changed (Int)"، این اسکریپت را درگ کرده و متد OnCameraControlChanged(int) را انتخاب کنید
+        
     }
 
     void LoadInitialValues()
@@ -55,37 +39,25 @@ public class SettingsUI : MonoBehaviour
         sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.8f); // مثال: بارگذاری از PlayerPrefs
 
         // TODO: مقادیر فعلی SplitScreen و CameraControl را از سیستم مدیریت دوربین بخوانید و Dropdown ها را تنظیم کنید
-        //splitScreenDropdown.value = PlayerPrefs.GetInt("SplitScreenMode", 0); // مثال: بارگذاری از PlayerPrefs
-        //cameraControlDropdown.value = PlayerPrefs.GetInt("CameraControl", 0); // مثال: بارگذاری از PlayerPrefs
-
+        
         // اطمینان حاصل کنید که متدهای OnValueChanged بعد از تنظیم مقادیر اولیه فراخوانی می شوند
         OnBackgroundVolumeChanged(backgroundVolumeSlider.value);
         OnSFXVolumeChanged(sfxVolumeSlider.value);
-       // OnSplitScreenModeChanged(splitScreenDropdown.value);
-       // OnCameraControlChanged(cameraControlDropdown.value);
+       
     }
 
     public void OnBackgroundVolumeChanged(float volume)
     {
-        // TODO: این مقدار Volume را به سیستم مدیریت صدای پس زمینه ارسال کنید
-        Debug.Log("Background Volume changed to: " + volume);
-        // مثال: اگر AudioManager دارید
-        // if (AudioManager.Instance != null) AudioManager.Instance.SetBackgroundVolume(volume);
-
-        // مثال: ذخیره مقدار در PlayerPrefs
-        PlayerPrefs.SetFloat("BackgroundVolume", volume);
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.SetBackgroundVolume(volume);
     }
 
     public void OnSFXVolumeChanged(float volume)
     {
-        // TODO: این مقدار Volume را به سیستم مدیریت صداهای افکت ارسال کنید
-        Debug.Log("SFX Volume changed to: " + volume);
-         // مثال: اگر AudioManager دارید
-        // if (AudioManager.Instance != null) AudioManager.Instance.SetSFXVolume(volume);
-
-         // مثال: ذخیره مقدار در PlayerPrefs
-        PlayerPrefs.SetFloat("SFXVolume", volume);
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.SetSFXVolume(volume);
     }
+
 
     // public void OnSplitScreenModeChanged(int index)
     // {

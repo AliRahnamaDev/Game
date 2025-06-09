@@ -810,11 +810,11 @@ PrefabInstance:
       objectReference: {fileID: 1323888911}
     - target: {fileID: 8209866188833554695, guid: f9b71d9d7610a8845878487334b2669c, type: 3}
       propertyPath: chunkWidth
-      value: 200
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 8209866188833554695, guid: f9b71d9d7610a8845878487334b2669c, type: 3}
       propertyPath: initialChunk
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8209866188833554695, guid: f9b71d9d7610a8845878487334b2669c, type: 3}
       propertyPath: generateAheadDistance

@@ -18,7 +18,7 @@ public class SplitScreenDivider : MonoBehaviour
 
     private void OnValidate()
     {
-        CreateColorTexture(); // در صورت تغییر رنگ در Inspector
+        CreateColorTexture();
     }
 
     private void CreateColorTexture()

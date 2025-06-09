@@ -303,6 +303,7 @@ public class Player : MonoBehaviour,IKnockbackable,IRespawnable
     //     Destroy(gameObject);
     //     GameObject newFx = Instantiate(DeadVfx, transform.position, Quaternion.identity);
     //     Destroy(newFx, 0.3f);
+    //     AudioManager.Instance.PlaySFX(SFXType.Die);
     // }
 
     private void GroundDetect()
@@ -366,6 +367,8 @@ public class Player : MonoBehaviour,IKnockbackable,IRespawnable
         {
             _rb.velocity = new Vector2(_rb.velocity.x, actualJumpForce);
             _anim.SetBool("isJumping", true);
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlaySFX(SFXType.Jump);
         }
         else if (Input.GetKeyDown(jumpKey) && !isGrounded && canDoublejump)
         {
@@ -373,6 +376,7 @@ public class Player : MonoBehaviour,IKnockbackable,IRespawnable
             _anim.SetBool("isJumping", true);
             canDoublejump = false;
         }
+        
     }
 
     public void MoveX()
@@ -553,7 +557,7 @@ public class Player : MonoBehaviour,IKnockbackable,IRespawnable
                 _rb.bodyType = RigidbodyType2D.Dynamic;
                 boxCollider.enabled = true;
 
-                damageable.Revive(); // 👈 فقط این کافیه
+                damageable.Revive();
                 IsDead = false;
             }
             else
@@ -561,8 +565,7 @@ public class Player : MonoBehaviour,IKnockbackable,IRespawnable
                 UIManager.Instance.ShowGameOverMenu();
             }
         }
-
-
+        
 
         private Transform FindOtherAlivePlayer()
         {
